@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 
 const MainNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +20,7 @@ const MainNav = () => {
     <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-full bg-primary"></div>
-          <span className="font-bold text-xl">AppGlance</span>
+          <Logo className="h-8" />
         </Link>
 
         {/* Desktop Navigation */}

@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "@/components/Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -37,9 +38,8 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 rounded-full bg-primary"></div>
-              <span className="font-bold text-xl">AppGlance</span>
+            <Link to="/" className="flex items-center mb-4">
+              <Logo className="h-8" />
             </Link>
             <p className="text-muted-foreground mb-4 max-w-xs">
               Your complete mobile app solution. Designed to make your life easier.
