@@ -6,7 +6,7 @@ const CallToAction = () => {
   return (
     <section className="py-16 bg-primary/5">
       <div className="container mx-auto px-4">
-        <div className="rounded-2xl bg-gradient-to-r from-primary to-purple-700 py-12 px-8 md:px-16 text-center">
+        <div className="rounded-2xl bg-gradient-to-r from-primary to-primary-800 py-12 px-8 md:px-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Get Started?
           </h2>
