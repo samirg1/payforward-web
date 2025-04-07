@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
@@ -10,7 +9,6 @@ const Footer = () => {
     {
       title: "Product",
       links: [
-        { label: "Features", href: "/#features" },
         { label: "Pricing", href: "#" },
         { label: "Download", href: "#" },
       ],
