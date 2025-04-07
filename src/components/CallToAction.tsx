@@ -17,7 +17,11 @@ const CallToAction = () => {
             <Button size="lg" className="bg-white text-primary hover:bg-white/90">
               Download Now
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white/10 border-2"
+            >
               Learn More
             </Button>
           </div>
