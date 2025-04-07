@@ -10,7 +10,7 @@ const Footer = () => {
     {
       title: "Product",
       links: [
-        { label: "Features", href: "#features" },
+        { label: "Features", href: "/#features" },
         { label: "Pricing", href: "#" },
         { label: "Download", href: "#" },
       ],

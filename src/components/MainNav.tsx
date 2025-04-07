@@ -10,7 +10,7 @@ const MainNav = () => {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Features", href: "#features" },
+    { label: "Features", href: "/#features" },
     { label: "Docs", href: "/docs" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
