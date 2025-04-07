@@ -20,7 +20,7 @@ const CallToAction = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white/10 border-2"
+              className="border-white text-primary hover:bg-white/10 border-2"
             >
               Learn More
             </Button>
