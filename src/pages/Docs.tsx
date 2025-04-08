@@ -4,7 +4,6 @@ import MainNav from "@/components/MainNav";
 import Footer from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { tutorialsList } from "@/data/tutorialsList";
 import GettingStartedContent from "@/components/docs/GettingStartedContent";
 import TutorialsContent from "@/components/docs/TutorialsContent";
@@ -50,12 +49,6 @@ const Docs = () => {
                 Everything you need to know about using our mobile application.
               </p>
             </div>
-
-            <Alert className="mb-6 bg-amber-50 border-amber-200">
-              <AlertDescription>
-                Our app is coming soon! The download links will be available here when the app is released.
-              </AlertDescription>
-            </Alert>
 
             <Tabs value={activeTab} onValueChange={handleTabChange} className="mb-12">
               <TabsList className="w-full md:w-auto grid grid-cols-2 mb-8">
