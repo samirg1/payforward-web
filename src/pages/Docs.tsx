@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import MainNav from "@/components/MainNav";
 import Footer from "@/components/Footer";
@@ -7,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const tutorialsList = [
   {
@@ -83,9 +83,8 @@ const Docs = () => {
   const [activeTab, setActiveTab] = useState("getting-started");
   const [activeTutorial, setActiveTutorial] = useState<string | null>(null);
   
-  // Parse the URL hash to set active tab and tutorial
   useEffect(() => {
-    const hash = location.hash.substring(1); // Remove the # character
+    const hash = location.hash.substring(1);
     
     if (hash.startsWith("tutorial-")) {
       setActiveTab("tutorials");
@@ -95,13 +94,11 @@ const Docs = () => {
     }
   }, [location]);
 
-  // Handle tab change
   const handleTabChange = (value: string) => {
     setActiveTab(value);
     navigate(`#${value}`);
   };
 
-  // Handle tutorial selection
   const handleTutorialSelect = (tutorialId: string) => {
     setActiveTutorial(tutorialId === activeTutorial ? null : tutorialId);
     if (tutorialId !== activeTutorial) {
@@ -122,10 +119,15 @@ const Docs = () => {
               </p>
             </div>
 
+            <Alert className="mb-6 bg-amber-50 border-amber-200">
+              <AlertDescription>
+                Our app is coming soon! The download links will be available here when the app is released.
+              </AlertDescription>
+            </Alert>
+
             <Tabs value={activeTab} onValueChange={handleTabChange} className="mb-12">
-              <TabsList className="w-full md:w-auto grid grid-cols-3 mb-8">
+              <TabsList className="w-full md:w-auto grid grid-cols-2 mb-8">
                 <TabsTrigger value="getting-started">Getting Started</TabsTrigger>
-                <TabsTrigger value="api">API Reference</TabsTrigger>
                 <TabsTrigger value="tutorials">Tutorials</TabsTrigger>
               </TabsList>
               
@@ -194,23 +196,6 @@ const Docs = () => {
                         </p>
                       </li>
                     </ul>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              
-              <TabsContent value="api">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>API Documentation</CardTitle>
-                    <CardDescription>Resources for developers</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="mb-4">
-                      Our app offers a comprehensive API for developers who want to integrate with our platform.
-                    </p>
-                    <p className="text-muted-foreground">
-                      Detailed API documentation is available for authenticated developers. Please contact our support team for access.
-                    </p>
                   </CardContent>
                 </Card>
               </TabsContent>
