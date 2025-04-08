@@ -1,9 +1,16 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import DownloadDialog from "@/components/DownloadDialog";
 
 const HeroSection = () => {
+  const [showDownloadDialog, setShowDownloadDialog] = useState(false);
+
+  const handleDownloadClick = () => {
+    setShowDownloadDialog(true);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       <div className="absolute inset-0 hero-gradient -z-10"></div>
@@ -17,7 +24,11 @@ const HeroSection = () => {
             Discover all the powerful features and resources for your mobile application in one place.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button 
+              size="lg" 
+              className="bg-white text-primary hover:bg-white/90"
+              onClick={handleDownloadClick}
+            >
               Download Now
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
@@ -40,6 +51,12 @@ const HeroSection = () => {
           <ArrowDown size={24} />
         </a>
       </div>
+
+      {/* Download Dialog */}
+      <DownloadDialog 
+        open={showDownloadDialog} 
+        onOpenChange={setShowDownloadDialog} 
+      />
     </section>
   );
 };

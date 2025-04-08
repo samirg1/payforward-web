@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";
+import DownloadDialog from "@/components/DownloadDialog";
 
 const MainNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showDownloadDialog, setShowDownloadDialog] = useState(false);
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -14,6 +16,10 @@ const MainNav = () => {
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
   ];
+
+  const handleDownloadClick = () => {
+    setShowDownloadDialog(true);
+  };
 
   return (
     <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b">
@@ -33,7 +39,7 @@ const MainNav = () => {
               {item.label}
             </Link>
           ))}
-          <Button>Download App</Button>
+          <Button onClick={handleDownloadClick}>Download App</Button>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -61,11 +67,17 @@ const MainNav = () => {
                   {item.label}
                 </Link>
               ))}
-              <Button className="w-full">Download App</Button>
+              <Button className="w-full" onClick={handleDownloadClick}>Download App</Button>
             </nav>
           </div>
         </div>
       )}
+
+      {/* Download Dialog */}
+      <DownloadDialog 
+        open={showDownloadDialog} 
+        onOpenChange={setShowDownloadDialog} 
+      />
     </header>
   );
 };

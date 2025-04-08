@@ -1,8 +1,15 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import DownloadDialog from "@/components/DownloadDialog";
 
 const CallToAction = () => {
+  const [showDownloadDialog, setShowDownloadDialog] = useState(false);
+
+  const handleDownloadClick = () => {
+    setShowDownloadDialog(true);
+  };
+
   return (
     <section className="py-16 bg-primary/5">
       <div className="container mx-auto px-4">
@@ -14,7 +21,11 @@ const CallToAction = () => {
             Download our app today and experience the difference. Our mobile solution is designed to make your life easier.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button 
+              size="lg" 
+              className="bg-white text-primary hover:bg-white/90"
+              onClick={handleDownloadClick}
+            >
               Download Now
             </Button>
             <Button 
@@ -27,6 +38,12 @@ const CallToAction = () => {
           </div>
         </div>
       </div>
+
+      {/* Download Dialog */}
+      <DownloadDialog 
+        open={showDownloadDialog} 
+        onOpenChange={setShowDownloadDialog} 
+      />
     </section>
   );
 };
