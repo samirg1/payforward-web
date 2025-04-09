@@ -39,8 +39,8 @@ const DownloadDialog: React.FC<DownloadDialogProps> = ({ open, onOpenChange }) =
               className="border-gray-300 justify-start"
               disabled
             >
-              <svg version="1.1" id="US_UK_Download_on_the" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" width="135px" height="40px" viewBox="0 0 135 40" enable-background="new 0 0 135 40" xml:space="preserve">
+              <svg version="1.1" id="US_UK_Download_on_the" xmlns="http://www.w3.org/2000/svg"
+	 x="0px" y="0px" width="135px" height="40px" viewBox="0 0 135 40" >
 <g>
 	<path fill="#A6A6A6" d="M130.197,40H4.729C2.122,40,0,37.872,0,35.267V4.726C0,2.12,2.122,0,4.729,0h125.468
 		C132.803,0,135,2.12,135,4.726v30.541C135,37.872,132.803,40,130.197,40L130.197,40z"/>
