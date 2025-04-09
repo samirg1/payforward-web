@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import DownloadDialog from "@/components/DownloadDialog";
+import { ArrowDown } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const HeroSection = () => {
