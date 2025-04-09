@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle, Apple, Smartphone } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface DownloadDialogProps {
@@ -39,7 +39,9 @@ const DownloadDialog: React.FC<DownloadDialogProps> = ({ open, onOpenChange }) =
               className="border-gray-300 justify-start"
               disabled
             >
-              <Apple className="mr-2 h-5 w-5" />
+              <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.09 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="currentColor"/>
+              </svg>
               <span>Download on the App Store</span>
             </Button>
             <Button 
@@ -47,7 +49,9 @@ const DownloadDialog: React.FC<DownloadDialogProps> = ({ open, onOpenChange }) =
               className="border-gray-300 justify-start"
               disabled
             >
-              <Smartphone className="mr-2 h-5 w-5" />
+              <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 20.5V3.5C3 2.4 3.9 1.5 5 1.5H19C20.1 1.5 21 2.4 21 3.5V20.5C21 21.61 20.1 22.5 19 22.5H5C3.9 22.5 3 21.61 3 20.5ZM18 20.5V3.5H6V20.5H18ZM12 19L17 14L12 9V12.5H7V15.5H12V19Z" fill="currentColor"/>
+              </svg>
               <span>Get it on Google Play</span>
             </Button>
           </div>

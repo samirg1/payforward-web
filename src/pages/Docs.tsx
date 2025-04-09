@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLocation, useNavigate } from "react-router-dom";
 import { tutorialsList } from "@/data/tutorialsList";
 import GettingStartedContent from "@/components/docs/GettingStartedContent";
+import InformationContent from "@/components/docs/InformationContent";
 import TutorialsContent from "@/components/docs/TutorialsContent";
 
 const Docs = () => {
@@ -13,6 +14,7 @@ const Docs = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("getting-started");
   const [activeTutorial, setActiveTutorial] = useState<string | null>(null);
+  const [activeInfoSection, setActiveInfoSection] = useState<string | null>(null);
   
   useEffect(() => {
     const hash = location.hash.substring(1);
@@ -20,6 +22,9 @@ const Docs = () => {
     if (hash.startsWith("tutorial-")) {
       setActiveTab("tutorials");
       setActiveTutorial(hash.replace("tutorial-", ""));
+    } else if (hash.startsWith("info-")) {
+      setActiveTab("information");
+      setActiveInfoSection(hash.replace("info-", ""));
     } else if (hash) {
       setActiveTab(hash);
     }
@@ -51,13 +56,18 @@ const Docs = () => {
             </div>
 
             <Tabs value={activeTab} onValueChange={handleTabChange} className="mb-12">
-              <TabsList className="w-full md:w-auto grid grid-cols-2 mb-8">
+              <TabsList className="w-full md:w-auto grid grid-cols-3 mb-8">
                 <TabsTrigger value="getting-started">Getting Started</TabsTrigger>
+                <TabsTrigger value="information">Information</TabsTrigger>
                 <TabsTrigger value="tutorials">Tutorials</TabsTrigger>
               </TabsList>
               
               <TabsContent value="getting-started">
                 <GettingStartedContent />
+              </TabsContent>
+              
+              <TabsContent value="information">
+                <InformationContent />
               </TabsContent>
               
               <TabsContent value="tutorials">

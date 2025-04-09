@@ -1,11 +1,27 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import DownloadDialog from "@/components/DownloadDialog";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const HeroSection = () => {
   const [showDownloadDialog, setShowDownloadDialog] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    { id: 1, src: "/placeholder.svg", alt: "Mobile App Screenshot 1" },
+    { id: 2, src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b", alt: "Mobile App Screenshot 2" },
+    { id: 3, src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1", alt: "Mobile App Screenshot 3" },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   const handleDownloadClick = () => {
     setShowDownloadDialog(true);
@@ -37,13 +53,21 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="flex-1 max-w-md">
-          <div className="bg-white p-2 rounded-3xl shadow-xl floating-animation">
-            <img 
-              src="/placeholder.svg" 
-              alt="Mobile App Screenshot" 
-              className="w-full rounded-2xl"
-            />
-          </div>
+          <Carousel className="w-full">
+            <CarouselContent>
+              {slides.map((slide, index) => (
+                <CarouselItem key={slide.id} className={index === currentSlide ? "block" : "hidden"}>
+                  <div className="bg-white p-2 rounded-3xl shadow-xl floating-animation">
+                    <img 
+                      src={slide.src} 
+                      alt={slide.alt} 
+                      className="w-full rounded-2xl"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
