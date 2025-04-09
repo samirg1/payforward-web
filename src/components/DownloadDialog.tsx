@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, AppStore, PlayStore } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface DownloadDialogProps {

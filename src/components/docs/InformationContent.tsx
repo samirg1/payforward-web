@@ -1,6 +1,7 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Separator } from "@/components/ui/separator";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface InformationSection {
   id: string;
@@ -9,6 +10,9 @@ interface InformationSection {
 }
 
 const InformationContent = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  
   const sections: InformationSection[] = [
     {
       id: "overview",
@@ -85,15 +89,47 @@ const InformationContent = () => {
     },
   ];
 
+  useEffect(() => {
+    const hash = location.hash.substring(1);
+    if (hash.startsWith('info-')) {
+      const sectionId = hash.replace('info-', '');
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
+  const handleSectionClick = (sectionId: string) => {
+    navigate(`#info-${sectionId}`);
+  };
+
   return (
-    <div className="space-y-8">
-      {sections.map((section, index) => (
-        <div key={section.id} id={section.id} className="scroll-mt-20">
-          <h3 className="text-2xl font-bold mb-4">{section.title}</h3>
-          <div className="text-muted-foreground">{section.content}</div>
-          {index < sections.length - 1 && <Separator className="mt-8" />}
+    <div>
+      <div className="mb-8">
+        <h3 className="text-xl font-medium mb-4">Jump to Section</h3>
+        <div className="flex flex-wrap gap-2">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              className="px-3 py-1 bg-muted rounded-md text-sm hover:bg-primary/10 transition-colors"
+              onClick={() => handleSectionClick(section.id)}
+            >
+              {section.title}
+            </button>
+          ))}
         </div>
-      ))}
+      </div>
+      
+      <div className="space-y-8">
+        {sections.map((section, index) => (
+          <div key={section.id} id={section.id} className="scroll-mt-20">
+            <h3 className="text-2xl font-bold mb-4">{section.title}</h3>
+            <div className="text-muted-foreground">{section.content}</div>
+            {index < sections.length - 1 && <Separator className="mt-8" />}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

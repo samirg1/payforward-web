@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
 import DownloadDialog from "@/components/DownloadDialog";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
@@ -57,11 +56,11 @@ const HeroSection = () => {
             <CarouselContent>
               {slides.map((slide, index) => (
                 <CarouselItem key={slide.id} className={index === currentSlide ? "block" : "hidden"}>
-                  <div className="bg-white p-2 rounded-3xl shadow-xl floating-animation">
+                  <div className="bg-white p-2 rounded-3xl shadow-xl">
                     <img 
                       src={slide.src} 
                       alt={slide.alt} 
-                      className="w-full rounded-2xl"
+                      className="w-full h-[500px] rounded-2xl object-cover"
                     />
                   </div>
                 </CarouselItem>
@@ -69,11 +68,6 @@ const HeroSection = () => {
             </CarouselContent>
           </Carousel>
         </div>
-      </div>
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#features" className="text-white/80 hover:text-white">
-          <ArrowDown size={24} />
-        </a>
       </div>
 
       {/* Download Dialog */}
