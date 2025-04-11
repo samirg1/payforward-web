@@ -17,9 +17,7 @@ const CallToAction = () => {
                         Ready to Get Started?
                     </h2>
                     <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-                        Download our app today and experience the difference.
-                        Our mobile solution is designed to make your life
-                        easier.
+                        Download our app today and experience .
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button
@@ -28,13 +26,6 @@ const CallToAction = () => {
                             onClick={handleDownloadClick}
                         >
                             Download Now
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="border-white text-primary hover:bg-white/10 border-2"
-                        >
-                            Learn More
                         </Button>
                     </div>
                 </div>

@@ -13,17 +13,21 @@ const HeroSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
-        { id: 1, src: "/placeholder.svg", alt: "Mobile App Screenshot 1" },
         {
-            id: 2,
-            src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-            alt: "Mobile App Screenshot 2",
+            id: 1,
+            src: "/favicon/web-app-manifest-512x512.png",
+            alt: "Mobile App Screenshot 1",
         },
-        {
-            id: 3,
-            src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1",
-            alt: "Mobile App Screenshot 3",
-        },
+        // {
+        //     id: 2,
+        //     src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+        //     alt: "Mobile App Screenshot 2",
+        // },
+        // {
+        //     id: 3,
+        //     src: "https://images.unsplash.com/photo-1531297484001-80022131f5a1",
+        //     alt: "Mobile App Screenshot 3",
+        // },
     ];
 
     useEffect(() => {
@@ -44,15 +48,10 @@ const HeroSection = () => {
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12 z-10">
                 <div className="flex-1 text-center md:text-left">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                        Your Complete
-                        <span className="text-primary-foreground">
-                            {" "}
-                            Mobile Solution
-                        </span>
+                        Search - Pay - Connect
                     </h1>
                     <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
-                        Discover all the powerful features and resources for
-                        your mobile application in one place.
+                        Empowering businesses. Connecting communities.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <Button
@@ -78,16 +77,16 @@ const HeroSection = () => {
                                 <CarouselItem
                                     key={slide.id}
                                     className={
-                                        index === currentSlide
+                                        (index === currentSlide
                                             ? "block"
-                                            : "hidden"
+                                            : "hidden")
                                     }
                                 >
-                                    <div className="bg-white p-2 rounded-3xl shadow-xl">
+                                    <div className=" p-2 rounded-3xl align-middle flex items-center justify-center">
                                         <img
                                             src={slide.src}
                                             alt={slide.alt}
-                                            className="w-full h-[500px] rounded-2xl object-cover"
+                                            className="w-52 h-52"
                                         />
                                     </div>
                                 </CarouselItem>

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showDownloadDialog, setShowDownloadDialog] = useState(false);
+    const [showComingSoon, setShowComingSoon] = useState(true);
 
     const navItems = [
         { label: "Home", href: "/" },
@@ -81,7 +82,7 @@ const MainNav = () => {
             )}
 
             {/* Coming Soon Banner - Moved to bottom of header */}
-            <ComingSoonBanner />
+            {showComingSoon && <ComingSoonBanner close={() => setShowComingSoon(false)} />}
 
             {/* Download Dialog */}
             <DownloadDialog

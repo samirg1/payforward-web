@@ -31,9 +31,6 @@ const DownloadDialog: React.FC<DownloadDialogProps> = ({
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
                     <DialogTitle>App Download</DialogTitle>
-                    <DialogDescription>
-                        Thank you for your interest in our application.
-                    </DialogDescription>
                 </DialogHeader>
                 <div className="p-4 pt-0">
                     <Alert className="bg-amber-50 border-amber-200">
