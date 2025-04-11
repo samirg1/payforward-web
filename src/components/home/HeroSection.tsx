@@ -1,3 +1,4 @@
+
 import DownloadDialog from "@/components/DownloadDialog";
 import { Button } from "@/components/ui/button";
 import {
@@ -42,6 +43,13 @@ const HeroSection = () => {
         setShowDownloadDialog(true);
     };
 
+    const handleLearnMoreClick = () => {
+        const featuresSection = document.getElementById('features');
+        if (featuresSection) {
+            featuresSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
             <div className="absolute inset-0 hero-gradient -z-10" />
@@ -65,6 +73,7 @@ const HeroSection = () => {
                             size="lg"
                             variant="outline"
                             className="bg-transparent border-white text-white hover:bg-white/10"
+                            onClick={handleLearnMoreClick}
                         >
                             Learn More
                         </Button>
