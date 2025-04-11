@@ -54,8 +54,7 @@ const FeaturesSection = () => {
                         App Highlights
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Discover the powerful features that make our mobile
-                        application stand out from the crowd.
+                        Discover the powerful features that make our app stand out from the crowd.
                     </p>
                 </div>
 

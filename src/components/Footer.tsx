@@ -40,71 +40,82 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-muted/50 border-t">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-          <div className="col-span-2">
-            <Link to="/" className="flex items-center mb-4">
-              <Logo className="h-8" />
-            </Link>
-            <p className="text-muted-foreground mb-4 max-w-xs">
-              Your complete mobile app solution. Designed to make your life easier.
-            </p>
-          </div>
-
-          {sections.map((section) => (
-            <div key={section.title}>
-              <h3 className="font-medium text-sm mb-3">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    {link.onClick ? (
-                      <a
-                        href={link.href}
-                        onClick={link.onClick}
-                        className="text-muted-foreground hover:text-primary text-sm cursor-pointer"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        to={link.href}
-                        className="text-muted-foreground hover:text-primary text-sm"
-                      >
-                        {link.label}
+      <footer className="bg-muted/50 border-t">
+          <div className="container mx-auto px-4 py-12">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+                  <div className="col-span-2">
+                      <Link to="/" className="flex items-center mb-4">
+                          <Logo className="h-8" />
                       </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+                      <p className="text-muted-foreground mb-4 max-w-xs">
+                          Empowering businesses. Connecting communities.
+                      </p>
+                  </div>
 
-        <div className="border-t mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} PayForward. All rights reserved.
-          </p>
-          <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <Link to="/legal#terms" className="text-muted-foreground hover:text-primary">
-              Terms
-            </Link>
-            <Link to="/legal#privacy" className="text-muted-foreground hover:text-primary">
-              Privacy
-            </Link>
-            <Link to="/legal#cookies" className="text-muted-foreground hover:text-primary">
-              Cookies
-            </Link>
+                  {sections.map((section) => (
+                      <div key={section.title}>
+                          <h3 className="font-medium text-sm mb-3">
+                              {section.title}
+                          </h3>
+                          <ul className="space-y-2">
+                              {section.links.map((link) => (
+                                  <li key={link.label}>
+                                      {link.onClick ? (
+                                          <a
+                                              href={link.href}
+                                              onClick={link.onClick}
+                                              className="text-muted-foreground hover:text-primary text-sm cursor-pointer"
+                                          >
+                                              {link.label}
+                                          </a>
+                                      ) : (
+                                          <Link
+                                              to={link.href}
+                                              className="text-muted-foreground hover:text-primary text-sm"
+                                          >
+                                              {link.label}
+                                          </Link>
+                                      )}
+                                  </li>
+                              ))}
+                          </ul>
+                      </div>
+                  ))}
+              </div>
+
+              <div className="border-t mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
+                  <p className="text-sm text-muted-foreground">
+                      &copy; {currentYear} PayForward. All rights reserved.
+                  </p>
+                  <div className="flex items-center space-x-4 mt-4 md:mt-0">
+                      <Link
+                          to="/legal#terms"
+                          className="text-muted-foreground hover:text-primary"
+                      >
+                          Terms
+                      </Link>
+                      <Link
+                          to="/legal#privacy"
+                          className="text-muted-foreground hover:text-primary"
+                      >
+                          Privacy
+                      </Link>
+                      <Link
+                          to="/legal#cookies"
+                          className="text-muted-foreground hover:text-primary"
+                      >
+                          Cookies
+                      </Link>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
 
-      {/* Download Dialog */}
-      <DownloadDialog
-        open={showDownloadDialog}
-        onOpenChange={setShowDownloadDialog}
-      />
-    </footer>
+          {/* Download Dialog */}
+          <DownloadDialog
+              open={showDownloadDialog}
+              onOpenChange={setShowDownloadDialog}
+          />
+      </footer>
   );
 };
 
