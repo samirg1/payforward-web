@@ -22,7 +22,7 @@ const MainNav = () => {
     };
 
     return (
-        <header className="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b">
+        <header className="fixed w-full bg-background backdrop-blur-sm z-50 border-b">
             <div className="container mx-auto px-4 flex items-center justify-between h-16">
                 <Link to="/" className="flex items-center space-x-2">
                     <Logo className="h-8" />

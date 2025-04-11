@@ -4,7 +4,6 @@ import TutorialsContent from "@/components/docs/TutorialsContent";
 import Footer from "@/components/Footer";
 import MainNav from "@/components/MainNav";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { tutorialsList } from "@/data/tutorialsList";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -46,7 +45,7 @@ const Docs = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <MainNav />
-            <main className="flex-1 pt-24 pb-16">
+            <main className="flex-1 pt-24 pb-16 mt-6">
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto">
                         <div className="mb-10">
@@ -86,7 +85,6 @@ const Docs = () => {
 
                             <TabsContent value="tutorials">
                                 <TutorialsContent
-                                    tutorials={tutorialsList}
                                     activeTutorial={activeTutorial}
                                     onTutorialSelect={handleTutorialSelect}
                                 />

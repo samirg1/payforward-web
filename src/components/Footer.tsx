@@ -4,7 +4,7 @@ import Logo from "@/components/Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const sections = [
     {
       title: "Product",
@@ -18,7 +18,7 @@ const Footer = () => {
       links: [
         { label: "Documentation", href: "/docs" },
         { label: "FAQs", href: "/faq" },
-        { label: "Guides", href: "#" },
+        { label: "Guides", href: "/docs/" },
       ],
     },
     {
@@ -43,15 +43,15 @@ const Footer = () => {
               Your complete mobile app solution. Designed to make your life easier.
             </p>
           </div>
-          
+
           {sections.map((section) => (
             <div key={section.title}>
               <h3 className="font-medium text-sm mb-3">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link 
-                      to={link.href} 
+                    <Link
+                      to={link.href}
                       className="text-muted-foreground hover:text-primary text-sm"
                     >
                       {link.label}
@@ -62,7 +62,7 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="border-t mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
             &copy; {currentYear} AppGlance. All rights reserved.

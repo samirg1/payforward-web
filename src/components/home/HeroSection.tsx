@@ -40,7 +40,7 @@ const HeroSection = () => {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-            <div className="absolute inset-0 hero-gradient -z-10"></div>
+            <div className="absolute inset-0 hero-gradient -z-10" />
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12 z-10">
                 <div className="flex-1 text-center md:text-left">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
