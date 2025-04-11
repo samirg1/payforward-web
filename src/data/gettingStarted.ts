@@ -1,3 +1,6 @@
+import linkText from "@/lib/linkText";
+import replacePlaceholderWithLinks from "@/lib/replacePlaceholderWithLinks";
+
 
 type GettingStartedContentPiece = {
     title: string;
@@ -7,7 +10,7 @@ type GettingStartedContentPiece = {
     listType: "ordered" | "unordered";
 };
 
-const content: GettingStartedContentPiece[] = [
+const gettingStarted: GettingStartedContentPiece[] = [
     {
         title: "Installation Guide",
         subtitle: "Learn how to install and set up the app",
@@ -15,6 +18,10 @@ const content: GettingStartedContentPiece[] = [
             [
                 "Download the App",
                 "Get the latest version from the App Store or Google Play Store.",
+            ],
+            [
+                "Understand How We Work",
+                `Read our ${linkText("Terms of Service", "/legal#terms")} and ${linkText("Privacy Policy", "/legal#privacy")}.`,
             ],
             [
                 "Create an Account",
@@ -48,4 +55,12 @@ const content: GettingStartedContentPiece[] = [
     },
 ];
 
-export default content;
+const gettingStartedContent = gettingStarted.map((section) => ({
+    ...section,
+    content: section.content.map((item) => [
+        replacePlaceholderWithLinks(item[0]),
+        replacePlaceholderWithLinks(item[1]),
+    ]),
+}));
+
+export default gettingStartedContent;

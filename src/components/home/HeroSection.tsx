@@ -56,7 +56,7 @@ const HeroSection = () => {
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12 z-10">
                 <div className="flex-1 text-center md:text-left">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                        Search - Pay - Connect
+                        Search. Pay. Connect.
                     </h1>
                     <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
                         Empowering businesses. Connecting communities.

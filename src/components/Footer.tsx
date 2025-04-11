@@ -17,7 +17,8 @@ const Footer = () => {
     {
       title: "Product",
       links: [
-        { label: "Download", href: "#", onClick: handleDownloadClick },
+          { label: "Download", href: "#", onClick: handleDownloadClick },
+          { label: "Pricing", href: "/docs#pricing" },
       ],
     },
     {

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Separator } from "@/components/ui/separator";
 import { useLocation, useNavigate } from "react-router-dom";
 import information from "@/data/information";
-import { info } from "console";
 
 const InformationContent = () => {
   const location = useLocation();
@@ -26,7 +25,7 @@ const InformationContent = () => {
 
   return (
     <div>
-      <div className="mb-8">
+      {information.length !== 0 && <div className="mb-8">
         {information.length !== 0 && <h3 className="text-xl font-medium mb-4">Jump to Section</h3>}
         <div className="flex flex-wrap gap-2">
           {information.map((section) => (
@@ -39,7 +38,7 @@ const InformationContent = () => {
             </button>
           ))}
         </div>
-      </div>
+      </div>}
 
       <div className="space-y-8">
         {information.map((section, index) => (

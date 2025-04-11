@@ -3,6 +3,7 @@ import InformationContent from "@/components/docs/InformationContent";
 import TutorialsContent from "@/components/docs/TutorialsContent";
 import Footer from "@/components/Footer";
 import MainNav from "@/components/MainNav";
+import PricingContent from "@/components/docs/PricingContent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -63,7 +64,7 @@ const Docs = () => {
                             onValueChange={handleTabChange}
                             className="mb-12"
                         >
-                            <TabsList className="w-full md:w-auto grid grid-cols-3 mb-8">
+                            <TabsList className="w-full md:w-auto grid grid-cols-4 mb-8">
                                 <TabsTrigger value="getting-started">
                                     Getting Started
                                 </TabsTrigger>
@@ -72,6 +73,9 @@ const Docs = () => {
                                 </TabsTrigger>
                                 <TabsTrigger value="tutorials">
                                     Tutorials
+                                </TabsTrigger>
+                                <TabsTrigger value="pricing">
+                                    Pricing
                                 </TabsTrigger>
                             </TabsList>
 
@@ -88,6 +92,10 @@ const Docs = () => {
                                     activeTutorial={activeTutorial}
                                     onTutorialSelect={handleTutorialSelect}
                                 />
+                            </TabsContent>
+
+                            <TabsContent value="pricing">
+                                <PricingContent />
                             </TabsContent>
                         </Tabs>
                     </div>
