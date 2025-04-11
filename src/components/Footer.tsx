@@ -1,16 +1,23 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
+import DownloadDialog from "@/components/DownloadDialog";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [showDownloadDialog, setShowDownloadDialog] = useState(false);
+
+  const handleDownloadClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowDownloadDialog(true);
+  };
 
   const sections = [
     {
       title: "Product",
       links: [
-        { label: "Download", href: "#" },
+        { label: "Download", href: "#", onClick: handleDownloadClick },
       ],
     },
     {
@@ -50,12 +57,22 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-primary text-sm"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.onClick ? (
+                      <a
+                        href={link.href}
+                        onClick={link.onClick}
+                        className="text-muted-foreground hover:text-primary text-sm cursor-pointer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="text-muted-foreground hover:text-primary text-sm"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -80,6 +97,12 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Download Dialog */}
+      <DownloadDialog
+        open={showDownloadDialog}
+        onOpenChange={setShowDownloadDialog}
+      />
     </footer>
   );
 };
