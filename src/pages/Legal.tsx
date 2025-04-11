@@ -17,12 +17,16 @@ const Legal = () => {
     const hash = location.hash.substring(1);
     if (hash === "privacy" || hash === "cookies" || hash === "terms") {
       setActiveTab(hash);
+      // Scroll to top when changing tabs via URL hash
+      window.scrollTo(0, 0);
     }
   }, [location]);
 
   const handleTabChange = (value: string) => {
     setActiveTab(value);
     navigate(`#${value}`);
+    // Scroll to top when changing tabs via UI interaction
+    window.scrollTo(0, 0);
   };
 
   return (
