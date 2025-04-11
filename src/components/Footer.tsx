@@ -9,7 +9,6 @@ const Footer = () => {
     {
       title: "Product",
       links: [
-        { label: "Pricing", href: "#" },
         { label: "Download", href: "#" },
       ],
     },
@@ -65,7 +64,7 @@ const Footer = () => {
 
         <div className="border-t mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} AppGlance. All rights reserved.
+            &copy; {currentYear} PayForward. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <Link to="#" className="text-muted-foreground hover:text-primary">
