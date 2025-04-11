@@ -1,3 +1,4 @@
+
 import DownloadDialog from "@/components/DownloadDialog";
 import ComingSoonBanner from "@/components/home/ComingSoonBanner";
 import Logo from "@/components/Logo";
@@ -14,6 +15,7 @@ const MainNav = () => {
         { label: "Home", href: "/" },
         { label: "Docs", href: "/docs" },
         { label: "FAQ", href: "/faq" },
+        { label: "About", href: "/about" },
         { label: "Contact", href: "/contact" },
     ];
 

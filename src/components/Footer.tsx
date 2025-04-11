@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
@@ -23,9 +24,9 @@ const Footer = () => {
     {
       title: "Company",
       links: [
-        { label: "About Us", href: "#" },
+        { label: "About Us", href: "/about" },
         { label: "Contact", href: "/contact" },
-        { label: "Privacy Policy", href: "#" },
+        { label: "Legal", href: "/legal" },
       ],
     },
   ];
@@ -67,13 +68,13 @@ const Footer = () => {
             &copy; {currentYear} PayForward. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <Link to="#" className="text-muted-foreground hover:text-primary">
+            <Link to="/legal#terms" className="text-muted-foreground hover:text-primary">
               Terms
             </Link>
-            <Link to="#" className="text-muted-foreground hover:text-primary">
+            <Link to="/legal#privacy" className="text-muted-foreground hover:text-primary">
               Privacy
             </Link>
-            <Link to="#" className="text-muted-foreground hover:text-primary">
+            <Link to="/legal#cookies" className="text-muted-foreground hover:text-primary">
               Cookies
             </Link>
           </div>

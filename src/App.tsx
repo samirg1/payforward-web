@@ -11,6 +11,8 @@ import Docs from "./pages/Docs";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import AboutUs from "./pages/AboutUs";
+import Legal from "./pages/Legal";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/docs" element={<Docs />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/legal" element={<Legal />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
