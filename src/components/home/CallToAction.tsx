@@ -1,6 +1,7 @@
+import { useState } from "react";
+
 import DownloadDialog from "@/components/DownloadDialog";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 
 const CallToAction = () => {
     const [showDownloadDialog, setShowDownloadDialog] = useState(false);

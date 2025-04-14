@@ -1,4 +1,4 @@
-export default () => (
+const AppleLogo = () => (
     <svg
         className="mr-2 h-5 w-5"
         viewBox="0 0 24 24"
@@ -11,3 +11,5 @@ export default () => (
         />
     </svg>
 );
+
+export default AppleLogo;

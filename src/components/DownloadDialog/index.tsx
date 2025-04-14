@@ -1,3 +1,6 @@
+import { AlertCircle } from "lucide-react";
+import React, { useCallback } from "react";
+
 import AppleLogo from "@/components/DownloadDialog/AppleLogo";
 import GoogleLogo from "@/components/DownloadDialog/GoogleLogo";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -9,9 +12,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
+
 import { appStoreURL, playStoreURL } from "@/data/constants";
-import { AlertCircle } from "lucide-react";
-import React, { useCallback } from "react";
 
 interface DownloadDialogProps {
     open: boolean;
@@ -22,9 +24,12 @@ const DownloadDialog: React.FC<DownloadDialogProps> = ({
     open,
     onOpenChange,
 }) => {
-    const handleDownloadClick = useCallback((url: string) => () => {
-        return window.open(url, "_blank");
-    }, []);
+    const handleDownloadClick = useCallback(
+        (url: string) => () => {
+            return window.open(url, "_blank");
+        },
+        [],
+    );
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>

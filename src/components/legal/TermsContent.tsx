@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator";
+
 import termsContent from "@/data/termsContent";
 
 const TermsContent = () => {

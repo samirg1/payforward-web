@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator";
+
 import privacyContent from "@/data/privacyContent";
 
 const PrivacyContent = () => {

@@ -1,12 +1,13 @@
-import GettingStartedContent from "@/components/docs/GettingStartedContent";
-import InformationContent from "@/components/docs/InformationContent";
-import TutorialsContent from "@/components/docs/TutorialsContent";
-import Footer from "@/components/Footer";
-import MainNav from "@/components/MainNav";
-import PricingContent from "@/components/docs/PricingContent";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import Page from "@/pages/Page";
+
+import GettingStartedContent from "@/components/docs/GettingStartedContent";
+import InformationContent from "@/components/docs/InformationContent";
+import PricingContent from "@/components/docs/PricingContent";
+import TutorialsContent from "@/components/docs/TutorialsContent";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Docs = () => {
     const location = useLocation();
@@ -14,7 +15,7 @@ const Docs = () => {
     const [activeTab, setActiveTab] = useState("getting-started");
     const [activeTutorial, setActiveTutorial] = useState<string | null>(null);
     const [activeInfoSection, setActiveInfoSection] = useState<string | null>(
-        null
+        null,
     );
 
     useEffect(() => {
@@ -44,65 +45,59 @@ const Docs = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col">
-            <MainNav />
-            <main className="flex-1 pt-24 pb-16 mt-6">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto">
-                        <div className="mb-10">
-                            <h1 className="text-4xl font-bold mb-4">
-                                Documentation
-                            </h1>
-                            <p className="text-lg text-muted-foreground">
-                                Everything you need to know about using our
-                                mobile application.
-                            </p>
-                        </div>
-
-                        <Tabs
-                            value={activeTab}
-                            onValueChange={handleTabChange}
-                            className="mb-12"
-                        >
-                            <TabsList className="w-full md:w-auto grid grid-cols-4 mb-8">
-                                <TabsTrigger value="getting-started">
-                                    Getting Started
-                                </TabsTrigger>
-                                <TabsTrigger value="information">
-                                    Information
-                                </TabsTrigger>
-                                <TabsTrigger value="tutorials">
-                                    Tutorials
-                                </TabsTrigger>
-                                <TabsTrigger value="pricing">
-                                    Pricing
-                                </TabsTrigger>
-                            </TabsList>
-
-                            <TabsContent value="getting-started">
-                                <GettingStartedContent />
-                            </TabsContent>
-
-                            <TabsContent value="information">
-                                <InformationContent />
-                            </TabsContent>
-
-                            <TabsContent value="tutorials">
-                                <TutorialsContent
-                                    activeTutorial={activeTutorial}
-                                    onTutorialSelect={handleTutorialSelect}
-                                />
-                            </TabsContent>
-
-                            <TabsContent value="pricing">
-                                <PricingContent />
-                            </TabsContent>
-                        </Tabs>
+        <Page>
+            <div className="container mx-auto px-4">
+                <div className="max-w-4xl mx-auto">
+                    <div className="mb-10">
+                        <h1 className="text-4xl font-bold mb-4">
+                            Documentation
+                        </h1>
+                        <p className="text-lg text-muted-foreground">
+                            Everything you need to know about using our mobile
+                            application.
+                        </p>
                     </div>
+
+                    <Tabs
+                        value={activeTab}
+                        onValueChange={handleTabChange}
+                        className="mb-12"
+                    >
+                        <TabsList className="w-full md:w-auto grid grid-cols-4 mb-8">
+                            <TabsTrigger value="getting-started">
+                                Getting Started
+                            </TabsTrigger>
+                            <TabsTrigger value="information">
+                                Information
+                            </TabsTrigger>
+                            <TabsTrigger value="tutorials">
+                                Tutorials
+                            </TabsTrigger>
+                            <TabsTrigger value="pricing">Pricing</TabsTrigger>
+                        </TabsList>
+
+                        <TabsContent value="getting-started">
+                            <GettingStartedContent />
+                        </TabsContent>
+
+                        <TabsContent value="information">
+                            <InformationContent />
+                        </TabsContent>
+
+                        <TabsContent value="tutorials">
+                            <TutorialsContent
+                                activeTutorial={activeTutorial}
+                                onTutorialSelect={handleTutorialSelect}
+                            />
+                        </TabsContent>
+
+                        <TabsContent value="pricing">
+                            <PricingContent />
+                        </TabsContent>
+                    </Tabs>
                 </div>
-            </main>
-            <Footer />
-        </div>
+            </div>
+        </Page>
     );
 };
 

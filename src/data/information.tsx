@@ -1,7 +1,7 @@
 interface InformationSection {
-  id: string;
-  title: string;
-  content: React.ReactNode;
+    id: string;
+    title: string;
+    content: React.ReactNode;
 }
 
 const sections: InformationSection[] = [];

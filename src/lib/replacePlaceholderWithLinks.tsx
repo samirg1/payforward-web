@@ -1,8 +1,8 @@
 // Utility function to replace placeholders with links
-export default (text: string): React.ReactNode => {
+const replacePlaceholdersWithLinks = (text: string): React.ReactNode => {
     const regex = /%([^:]+):([^%]+)%/g;
     const parts = [];
-    let match: RegExpExecArray | [any, any, any];
+    let match: RegExpExecArray;
     let lastIndex = 0;
 
     while ((match = regex.exec(text)) !== null) {
@@ -18,10 +18,10 @@ export default (text: string): React.ReactNode => {
             <a
                 key={match.index}
                 href={linkHref}
-                className="text-blue-500 underline"
+                className="text-blue-500 hover:text-blue-700 underline"
             >
                 {linkText}
-            </a>
+            </a>,
         );
 
         lastIndex = regex.lastIndex;
@@ -34,3 +34,5 @@ export default (text: string): React.ReactNode => {
 
     return parts;
 };
+
+export default replacePlaceholdersWithLinks;

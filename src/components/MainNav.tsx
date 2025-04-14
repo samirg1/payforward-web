@@ -1,16 +1,20 @@
-
-import DownloadDialog from "@/components/DownloadDialog";
-import ComingSoonBanner from "@/components/home/ComingSoonBanner";
-import Logo from "@/components/Logo";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import DownloadDialog from "@/components/DownloadDialog";
+import Logo from "@/components/Logo";
+import ComingSoonBanner from "@/components/home/ComingSoonBanner";
+import { Button } from "@/components/ui/button";
+
+import { appStoreURL, playStoreURL } from "@/data/constants";
+
+const appIsAvailable = appStoreURL || playStoreURL;
+
 const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showDownloadDialog, setShowDownloadDialog] = useState(false);
-    const [showComingSoon, setShowComingSoon] = useState(true);
+    const [showComingSoon, setShowComingSoon] = useState(!appIsAvailable);
 
     const navItems = [
         { label: "Home", href: "/" },
@@ -82,7 +86,9 @@ const MainNav = () => {
             )}
 
             {/* Coming Soon Banner - Moved to bottom of header */}
-            {showComingSoon && <ComingSoonBanner close={() => setShowComingSoon(false)} />}
+            {showComingSoon && (
+                <ComingSoonBanner close={() => setShowComingSoon(false)} />
+            )}
 
             {/* Download Dialog */}
             <DownloadDialog

@@ -2,6 +2,8 @@ import {
     CheckCircle2,
     Clock,
     CreditCard,
+    DollarSign,
+    HeartHandshake,
     Link,
     MapPinCheckInside,
     MessagesSquare,
@@ -9,13 +11,17 @@ import {
     Smartphone,
     Sparkles,
     TrendingUp,
+    UserCheck,
     Wallet,
 } from "lucide-react";
+
+import linkText from "@/lib/linkText";
+import replacePlaceholderWithLinks from "@/lib/replacePlaceholderWithLinks";
 
 type Feature = {
     icon: React.ReactNode;
     title: string;
-    description: string;
+    description: React.ReactNode;
 };
 
 export const customerFeatures: Feature[] = [
@@ -29,7 +35,7 @@ export const customerFeatures: Feature[] = [
         icon: <CreditCard className="h-6 w-6" />,
         title: "Secure In-App Payments",
         description:
-            "No cash, no stress. Pay safely and instantly through the app when the job’s done.",
+            "No cash, no stress. Pay safely and instantly through the app.",
     },
     {
         icon: <MessagesSquare className="h-6 w-6" />,
@@ -38,14 +44,27 @@ export const customerFeatures: Feature[] = [
             "Message businesses directly to ask questions, share details, or confirm a job before booking.",
     },
     {
-        icon: <Sparkles className="h-6 w-6" />,
+        icon: <UserCheck className="h-6 w-6" />,
         title: "Verified & Reviewed",
         description:
-            "Every provider is reviewed and rated by the community — so you always know who you’re hiring.",
+            "Every provider is verified, reviewed, and rated by the community — so you always know who you’re hiring.",
     },
-];
+    {
+        icon: <DollarSign className="h-6 w-6" />,
+        title: "Free to Use - Always",
+        description: `No fees for customers, ever. We also ensure you don't cop the businesses' transaction fees. See ${linkText("Terms of Service", "/legal#terms")}.`,
+    },
+].map((feature) => ({
+    ...feature,
+    description: replacePlaceholderWithLinks(feature.description),
+}));
 
 export const businessFeatures: Feature[] = [
+    {
+        icon: <TrendingUp className="h-6 w-6" />,
+        title: "Pay as You Earn Only",
+        description: `Setup and maintenance of your account are always free. We only charge a small fee when you get paid. See ${linkText("Pricing", "/docs#pricing")}.`,
+    },
     {
         icon: <Smartphone className="h-6 w-6" />,
         title: "All-in-One App",
@@ -71,15 +90,12 @@ export const businessFeatures: Feature[] = [
             "Message clients, send updates, and build lasting relationships — all through the app.",
     },
     {
-        icon: <Clock className="h-6 w-6" />,
-        title: "Work on Your Schedule",
+        icon: <HeartHandshake className="h-6 w-6" />,
+        title: "We Work With You",
         description:
-            "Set your availability, accept jobs when you want, and stay in control of your time.",
+            "We’re here to help you grow your business. We're always transparent, and our goal is to help you succeed.",
     },
-    {
-        icon: <CheckCircle2 className="h-6 w-6" />,
-        title: "No Setup Required",
-        description:
-            "Skip the website, payment system, and calendar setup. Just download and start working.",
-    },
-];
+].map((feature) => ({
+    ...feature,
+    description: replacePlaceholderWithLinks(feature.description),
+}));

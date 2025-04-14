@@ -1,7 +1,6 @@
 import linkText from "@/lib/linkText";
 import replacePlaceholderWithLinks from "@/lib/replacePlaceholderWithLinks";
 
-
 type GettingStartedContentPiece = {
     title: string;
     subtitle: string;
@@ -23,18 +22,12 @@ const gettingStarted: GettingStartedContentPiece[] = [
                 "Understand How We Work",
                 `Read our ${linkText("Terms of Service", "/legal#terms")} and ${linkText("Privacy Policy", "/legal#privacy")}.`,
             ],
-            [
-                "Create an Account",
-                "Sign up using your email.",
-            ],
+            ["Create an Account", "Sign up using your email."],
             [
                 "Setup Your Profile & Business Account",
                 "Complete your profile, and onboard your business if applicable.",
             ],
-            [
-                "Get Started!",
-                "Find customers, send quotes and get connected.",
-            ],
+            ["Get Started!", "Find customers, send quotes and get connected."],
         ],
         listType: "ordered",
     },
@@ -44,8 +37,14 @@ const gettingStarted: GettingStartedContentPiece[] = [
         description:
             "Once you have the app setup, you can start using the core features. Here's a quick overview:",
         content: [
-            ["Search", "Search for anything you need at a glance, only see verified businesses (or customers if you are a verified business)."],
-            ["Conversations", "Connect, send quotes and keep in touch with businesses / customers."],
+            [
+                "Search",
+                "Search for anything you need at a glance, only see verified businesses (or customers if you are a verified business).",
+            ],
+            [
+                "Conversations",
+                "Connect, send quotes and keep in touch with businesses / customers.",
+            ],
             [
                 "Account",
                 "Manage your account, add posts and tailor your profile to your needs.",

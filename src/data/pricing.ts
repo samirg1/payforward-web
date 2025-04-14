@@ -1,62 +1,78 @@
-import replacePlaceholderWithLinks from "@/lib/replacePlaceholderWithLinks";
+import { ReactNode } from "react";
+
 import linkText from "@/lib/linkText";
+import replacePlaceholderWithLinks from "@/lib/replacePlaceholderWithLinks";
+
+export type PricingContentPieceExtras = "paymentCalculator";
 
 type PricingPiece = {
     title: string;
     subtitle: string;
     description?: string;
-    content: [string, string][];
+    content: [
+        title: string,
+        description: string,
+        extra?: PricingContentPieceExtras,
+    ][];
     listType: "ordered" | "unordered";
 };
 
 const pricing: PricingPiece[] = [
     {
         title: "Setup and Ongoing Costs",
-        subtitle: "No hidden fees, no surprises.",
+        subtitle: "Transparent pricing with no surprises.",
         description:
-            "We believe in transparency. Our pricing is straightforward, with no hidden fees or unexpected costs.",
+            "Our pricing is simple and clear. No hidden fees and no unexpected charges.",
         content: [
             [
                 "Free to Download",
-                "The app is free to download and use. No upfront costs.",
+                "The app is completely free to download and use. No upfront charges.",
             ],
             [
-                "No Monthly Fees",
-                "No monthly subscription fees for users or businesses.",
+                "No Ongoing Fees",
+                "Enjoy the app without any ongoing subscription costs for users or businesses.",
             ],
             [
                 "Transaction Fees",
-                "A small fee is taken from the business on each transaction made through the app.",
+                "A small fee is charged to the business for each transaction processed through the app.",
             ],
         ],
         listType: "unordered",
     },
     {
         title: "Payment Processing",
-        subtitle: "We charge a small fee to the business for each transaction.",
+        subtitle: "Affordable and transparent transaction fees.",
         description:
-            "To keep the app running and to ensure secure transactions, we charge a small fee for each payment processed through the app. Here's how it works:",
+            "To maintain the app and ensure secure payments, we charge a small fee for each transaction. Here's a breakdown:",
         content: [
             [
                 "No Fees for Customers",
-                "Customers do not pay any fees paying on the app. The fee is taken out of the business' received payment.",
+                "Customers pay no fees when using the app. The transaction fee is deducted from the business' payment.",
             ],
             [
                 "Fixed Fee",
-                "A fixed fee of 30c is charged for each transaction, regardless of the amount. For this reason the minimum transaction amount is $1.",
+                "A flat fee of 30¢ is applied to every transaction, regardless of the amount. The minimum transaction amount is $1.",
             ],
             [
                 "Percentage Fee",
-                "A percentage fee of 3.7% is charged on the total transaction amount.",
+                "A 3.7% fee is applied to the total transaction amount. This rate is fixed and does not vary.",
             ],
             [
                 "Example",
-                "If a customer pays $100 to a business, the business receives $96.30 after fees.",
+                "For a $100 payment, the business receives $96.00 after fees. Note: rounding adjustments may apply (± 1¢).",
+                "paymentCalculator",
             ],
             [
                 "Important Note",
-                `As per the ${linkText("Terms of Service", "/legal#terms")}, the business is not to charge the customer for these fees. These fees are to keep our servers running, and to ensure secure transactions.`,
-            ]
+                `As outlined in our ${linkText(
+                    "Terms of Service",
+                    "/legal#terms",
+                )}, businesses are prohibited from passing these fees onto customers. These fees support our infrastructure and ensure secure transactions.`,
+            ],
+            [
+                "Why 3.7%?",
+                "We pay 1.7% (+ 30¢) to our payment processor to ensure the highest level of security and reliability. The remaining 2% covers our operational costs, ensuring we can continue to provide a high-quality service.",
+            ],
         ],
         listType: "unordered",
     },
@@ -65,10 +81,11 @@ const pricing: PricingPiece[] = [
 const pricingContent = pricing.map((section) => ({
     ...section,
     description: replacePlaceholderWithLinks(section.description),
-    content: section.content.map((item) => [
-        replacePlaceholderWithLinks(item[0]),
-        replacePlaceholderWithLinks(item[1]),
-    ]),
+    content: section.content.map((item) => ({
+        title: replacePlaceholderWithLinks(item[0]),
+        description: replacePlaceholderWithLinks(item[1]),
+        extra: item[2] ? item[2] : undefined,
+    })),
 }));
 
 export default pricingContent;

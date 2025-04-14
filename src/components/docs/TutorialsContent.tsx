@@ -1,6 +1,9 @@
-import tutorials from "@/data/tutorials";
 import React from "react";
-import TutorialItem from "./TutorialItem";
+
+import TutorialItem from "@/components/docs/TutorialItem";
+
+import tutorials from "@/data/tutorials";
+
 interface TutorialsContentProps {
     activeTutorial: string | null;
     onTutorialSelect: (id: string) => void;

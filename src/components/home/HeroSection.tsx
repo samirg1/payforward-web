@@ -1,3 +1,5 @@
+import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import DownloadDialog from "@/components/DownloadDialog";
 import { Button } from "@/components/ui/button";
@@ -6,8 +8,6 @@ import {
     CarouselContent,
     CarouselItem,
 } from "@/components/ui/carousel";
-import { ArrowDown } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const HeroSection = () => {
     const [showDownloadDialog, setShowDownloadDialog] = useState(false);
@@ -44,14 +44,14 @@ const HeroSection = () => {
     };
 
     const handleLearnMoreClick = () => {
-        const featuresSection = document.getElementById('features');
+        const featuresSection = document.getElementById("features");
         if (featuresSection) {
-            featuresSection.scrollIntoView({ behavior: 'smooth' });
+            featuresSection.scrollIntoView({ behavior: "smooth" });
         }
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center pt-16 mt-0 overflow-hidden">
             <div className="absolute inset-0 hero-gradient -z-10" />
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12 z-10">
                 <div className="flex-1 text-center md:text-left">
@@ -86,9 +86,9 @@ const HeroSection = () => {
                                 <CarouselItem
                                     key={slide.id}
                                     className={
-                                        (index === currentSlide
+                                        index === currentSlide
                                             ? "block"
-                                            : "hidden")
+                                            : "hidden"
                                     }
                                 >
                                     <div className=" p-2 rounded-3xl align-middle flex items-center justify-center">

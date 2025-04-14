@@ -1,15 +1,14 @@
-
 type TutorialStep = {
-  title: string;
-  content: string;
-  image: string | null;
+    title: string;
+    content: string;
+    image: string | null;
 };
 
 export type Tutorial = {
-  id: string;
-  title: string;
-  description: string;
-  steps: TutorialStep[];
+    id: string;
+    title: string;
+    description: string;
+    steps: TutorialStep[];
 };
 
 const tutorialsList: Tutorial[] = [];

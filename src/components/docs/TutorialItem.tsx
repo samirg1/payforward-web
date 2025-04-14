@@ -1,12 +1,14 @@
+import { ChevronDown, ChevronRight } from "lucide-react";
+import React from "react";
+
+import TutorialStep from "@/components/docs/TutorialStep";
 import {
     Collapsible,
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+
 import { Tutorial } from "@/data/tutorials";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import React from "react";
-import TutorialStep from "./TutorialStep";
 
 interface TutorialItemProps {
     tutorial: Tutorial;

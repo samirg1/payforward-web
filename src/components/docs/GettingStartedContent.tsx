@@ -6,6 +6,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+
 import gettingStartedContent from "@/data/gettingStarted";
 
 const GettingStartedContent = () => {
@@ -15,7 +16,9 @@ const GettingStartedContent = () => {
                 <Card
                     key={`getting-started-content-${section.title}-${index}`}
                     className={`${
-                        index === gettingStartedContent.length - 1 ? "mb-0" : "mb-8"
+                        index === gettingStartedContent.length - 1
+                            ? "mb-0"
+                            : "mb-8"
                     }`}
                 >
                     <CardHeader>
