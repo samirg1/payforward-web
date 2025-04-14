@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import AboutUs from "@/pages/AboutUs";
 import Contact from "@/pages/Contact";
 import Docs from "@/pages/Docs";
-import Faq from "@/pages/Faq";
+import Faq from "@/pages/FAQ";
 import Index from "@/pages/Index";
 import Legal from "@/pages/Legal";
 import NotFound from "@/pages/NotFound";
