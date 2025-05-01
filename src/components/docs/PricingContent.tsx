@@ -35,7 +35,7 @@ const PricingCalculator = () => {
                 }}
                 value={amount || ""}
             />
-            <p className="text-muted-foreground ml-2 inline">
+            <p className="text-muted-foreground mt-2">
                 {amount
                     ? `$${(amount * 0.963 - 0.3).toFixed(2)} after fees`
                     : ""}

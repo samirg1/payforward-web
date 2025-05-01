@@ -1,7 +1,7 @@
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import DownloadDialog from "@/components/DownloadDialog";
 import { Button } from "@/components/ui/button";
 import {
     Carousel,
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/carousel";
 
 const HeroSection = () => {
-    const [showDownloadDialog, setShowDownloadDialog] = useState(false);
+    const showDownload = useShowDownloadStore((state) => state.show);
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const slides = [
@@ -39,10 +39,6 @@ const HeroSection = () => {
         return () => clearInterval(interval);
     }, [slides.length]);
 
-    const handleDownloadClick = () => {
-        setShowDownloadDialog(true);
-    };
-
     const handleLearnMoreClick = () => {
         const featuresSection = document.getElementById("features");
         if (featuresSection) {
@@ -65,7 +61,7 @@ const HeroSection = () => {
                         <Button
                             size="lg"
                             className="bg-white text-primary hover:bg-white/90"
-                            onClick={handleDownloadClick}
+                            onClick={showDownload}
                         >
                             Download Now
                         </Button>
@@ -112,12 +108,6 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Download Dialog */}
-            <DownloadDialog
-                open={showDownloadDialog}
-                onOpenChange={setShowDownloadDialog}
-            />
         </section>
     );
 };

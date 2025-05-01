@@ -23,6 +23,7 @@ const TutorialItem: React.FC<TutorialItemProps> = ({
 }) => {
     return (
         <Collapsible
+            id={tutorial.id}
             key={tutorial.id}
             open={isActive}
             onOpenChange={() => onSelect(tutorial.id)}

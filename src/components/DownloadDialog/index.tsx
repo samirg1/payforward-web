@@ -1,3 +1,4 @@
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { AlertCircle } from "lucide-react";
 import React, { useCallback } from "react";
 
@@ -8,22 +9,17 @@ import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
 
 import { appStoreURL, playStoreURL } from "@/data/constants";
 
-interface DownloadDialogProps {
-    open: boolean;
-    onOpenChange: (open: boolean) => void;
-}
+const DownloadDialog: React.FC = () => {
+    const showDownload = useShowDownloadStore((state) => state.showDownload);
+    const setShowDownload = useShowDownloadStore((state) => state.set);
+    const closeDownload = useShowDownloadStore((state) => state.close);
 
-const DownloadDialog: React.FC<DownloadDialogProps> = ({
-    open,
-    onOpenChange,
-}) => {
     const handleDownloadClick = useCallback(
         (url: string) => () => {
             return window.open(url, "_blank");
@@ -32,7 +28,7 @@ const DownloadDialog: React.FC<DownloadDialogProps> = ({
     );
 
     return (
-        <Dialog open={open} onOpenChange={onOpenChange}>
+        <Dialog open={showDownload} onOpenChange={setShowDownload}>
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
                     <DialogTitle>App Download</DialogTitle>
@@ -67,10 +63,7 @@ const DownloadDialog: React.FC<DownloadDialogProps> = ({
                         </Button>
                     </div>
                     <div className="mt-4 flex justify-end">
-                        <Button
-                            variant="outline"
-                            onClick={() => onOpenChange(false)}
-                        >
+                        <Button variant="outline" onClick={closeDownload}>
                             Close
                         </Button>
                     </div>

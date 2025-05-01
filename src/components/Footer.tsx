@@ -1,23 +1,17 @@
-import React, { useState } from "react";
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { Link } from "react-router-dom";
 
-import DownloadDialog from "@/components/DownloadDialog";
 import Logo from "@/components/Logo";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-    const [showDownloadDialog, setShowDownloadDialog] = useState(false);
-
-    const handleDownloadClick = (e: React.MouseEvent) => {
-        e.preventDefault();
-        setShowDownloadDialog(true);
-    };
+    const showDownload = useShowDownloadStore((state) => state.show);
 
     const sections = [
         {
             title: "Product",
             links: [
-                { label: "Download", href: "#", onClick: handleDownloadClick },
+                { label: "Download", href: "#", onClick: showDownload },
                 { label: "Pricing", href: "/docs#pricing" },
             ],
         },
@@ -109,12 +103,6 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Download Dialog */}
-            <DownloadDialog
-                open={showDownloadDialog}
-                onOpenChange={setShowDownloadDialog}
-            />
         </footer>
     );
 };

@@ -1,7 +1,5 @@
-import { ReactNode } from "react";
-
-import linkText from "@/lib/linkText";
-import replacePlaceholderWithLinks from "@/lib/replacePlaceholderWithLinks";
+import linkText from "@/lib/links/linkText";
+import replacePlaceholderWithLinks from "@/lib/links/replacePlaceholderWithLinks";
 
 export type PricingContentPieceExtras = "paymentCalculator";
 

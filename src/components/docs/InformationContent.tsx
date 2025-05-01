@@ -11,17 +11,15 @@ const InformationContent = () => {
 
     useEffect(() => {
         const hash = location.hash.substring(1);
-        if (hash.startsWith("info-")) {
-            const sectionId = hash.replace("info-", "");
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
-            }
-        }
+        if (!hash.startsWith("information-")) return;
+
+        const sectionId = hash.replace("information-", "");
+        const section = document.getElementById(sectionId);
+        if (section) section.scrollIntoView({ behavior: "smooth" });
     }, [location]);
 
     const handleSectionClick = (sectionId: string) => {
-        navigate(`#info-${sectionId}`);
+        navigate(`#information-${sectionId}`);
     };
 
     return (

@@ -1,20 +1,18 @@
+import useShowBannerStore from "@/state/useShowBannerStore";
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import DownloadDialog from "@/components/DownloadDialog";
 import Logo from "@/components/Logo";
 import ComingSoonBanner from "@/components/home/ComingSoonBanner";
 import { Button } from "@/components/ui/button";
 
-import { appStoreURL, playStoreURL } from "@/data/constants";
-
-const appIsAvailable = appStoreURL || playStoreURL;
-
 const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [showDownloadDialog, setShowDownloadDialog] = useState(false);
-    const [showComingSoon, setShowComingSoon] = useState(!appIsAvailable);
+    const showDownload = useShowDownloadStore((state) => state.show);
+
+    const showBanner = useShowBannerStore((state) => state.showBanner);
 
     const navItems = [
         { label: "Home", href: "/" },
@@ -23,10 +21,6 @@ const MainNav = () => {
         { label: "About", href: "/about" },
         { label: "Contact", href: "/contact" },
     ];
-
-    const handleDownloadClick = () => {
-        setShowDownloadDialog(true);
-    };
 
     return (
         <header className="fixed w-full bg-background backdrop-blur-sm z-50 border-b">
@@ -46,7 +40,7 @@ const MainNav = () => {
                             {item.label}
                         </Link>
                     ))}
-                    <Button onClick={handleDownloadClick}>Download App</Button>
+                    <Button onClick={showDownload}>Download App</Button>
                 </nav>
 
                 {/* Mobile Menu Button */}
@@ -74,10 +68,7 @@ const MainNav = () => {
                                     {item.label}
                                 </Link>
                             ))}
-                            <Button
-                                className="w-full"
-                                onClick={handleDownloadClick}
-                            >
+                            <Button className="w-full" onClick={showDownload}>
                                 Download App
                             </Button>
                         </nav>
@@ -86,15 +77,7 @@ const MainNav = () => {
             )}
 
             {/* Coming Soon Banner - Moved to bottom of header */}
-            {showComingSoon && (
-                <ComingSoonBanner close={() => setShowComingSoon(false)} />
-            )}
-
-            {/* Download Dialog */}
-            <DownloadDialog
-                open={showDownloadDialog}
-                onOpenChange={setShowDownloadDialog}
-            />
+            {showBanner && <ComingSoonBanner />}
         </header>
     );
 };

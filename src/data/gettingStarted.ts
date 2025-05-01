@@ -1,5 +1,5 @@
-import linkText from "@/lib/linkText";
-import replacePlaceholderWithLinks from "@/lib/replacePlaceholderWithLinks";
+import linkText from "@/lib/links/linkText";
+import replacePlaceholderWithLinks from "@/lib/links/replacePlaceholderWithLinks";
 
 type GettingStartedContentPiece = {
     title: string;

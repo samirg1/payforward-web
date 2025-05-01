@@ -9,39 +9,42 @@ import PricingContent from "@/components/docs/PricingContent";
 import TutorialsContent from "@/components/docs/TutorialsContent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+type DocTabs = "getting-started" | "information" | "tutorials" | "pricing";
+
+const tabs: { [key in DocTabs]: { title: string; Component: React.FC } } = {
+    "getting-started": {
+        title: "Getting Started",
+        Component: GettingStartedContent,
+    },
+    information: {
+        title: "Information",
+        Component: InformationContent,
+    },
+    tutorials: {
+        title: "Tutorials",
+        Component: TutorialsContent,
+    },
+    pricing: {
+        title: "Pricing",
+        Component: PricingContent,
+    },
+};
+
 const Docs = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState("getting-started");
-    const [activeTutorial, setActiveTutorial] = useState<string | null>(null);
-    const [activeInfoSection, setActiveInfoSection] = useState<string | null>(
-        null,
-    );
+    const [activeTab, setActiveTab] = useState<DocTabs>("getting-started");
 
     useEffect(() => {
         const hash = location.hash.substring(1);
 
-        if (hash.startsWith("tutorial-")) {
-            setActiveTab("tutorials");
-            setActiveTutorial(hash.replace("tutorial-", ""));
-        } else if (hash.startsWith("info-")) {
-            setActiveTab("information");
-            setActiveInfoSection(hash.replace("info-", ""));
-        } else if (hash) {
-            setActiveTab(hash);
-        }
+        const tab = hash.split("-")[0] as DocTabs;
+        if (Object.keys(tabs).includes(tab)) setActiveTab(tab);
     }, [location]);
 
     const handleTabChange = (value: string) => {
-        setActiveTab(value);
+        setActiveTab(value as DocTabs);
         navigate(`#${value}`);
-    };
-
-    const handleTutorialSelect = (tutorialId: string) => {
-        setActiveTutorial(tutorialId === activeTutorial ? null : tutorialId);
-        if (tutorialId !== activeTutorial) {
-            navigate(`#tutorial-${tutorialId}`);
-        }
     };
 
     return (
@@ -63,37 +66,18 @@ const Docs = () => {
                         onValueChange={handleTabChange}
                         className="mb-12"
                     >
-                        <TabsList className="w-full md:w-auto grid grid-cols-4 mb-8">
-                            <TabsTrigger value="getting-started">
-                                Getting Started
-                            </TabsTrigger>
-                            <TabsTrigger value="information">
-                                Information
-                            </TabsTrigger>
-                            <TabsTrigger value="tutorials">
-                                Tutorials
-                            </TabsTrigger>
-                            <TabsTrigger value="pricing">Pricing</TabsTrigger>
+                        <TabsList className="w-full grid grid-cols-2 md:grid-cols-4 mb-8">
+                            {Object.entries(tabs).map(([tabId, { title }]) => (
+                                <TabsTrigger key={tabId} value={tabId}>
+                                    {title}
+                                </TabsTrigger>
+                            ))}
                         </TabsList>
-
-                        <TabsContent value="getting-started">
-                            <GettingStartedContent />
-                        </TabsContent>
-
-                        <TabsContent value="information">
-                            <InformationContent />
-                        </TabsContent>
-
-                        <TabsContent value="tutorials">
-                            <TutorialsContent
-                                activeTutorial={activeTutorial}
-                                onTutorialSelect={handleTutorialSelect}
-                            />
-                        </TabsContent>
-
-                        <TabsContent value="pricing">
-                            <PricingContent />
-                        </TabsContent>
+                        {Object.entries(tabs).map(([tabId, { Component }]) => (
+                            <TabsContent key={tabId} value={tabId}>
+                                <Component />
+                            </TabsContent>
+                        ))}
                     </Tabs>
                 </div>
             </div>

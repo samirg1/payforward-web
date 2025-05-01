@@ -1,14 +1,9 @@
-import { useState } from "react";
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 
-import DownloadDialog from "@/components/DownloadDialog";
 import { Button } from "@/components/ui/button";
 
 const CallToAction = () => {
-    const [showDownloadDialog, setShowDownloadDialog] = useState(false);
-
-    const handleDownloadClick = () => {
-        setShowDownloadDialog(true);
-    };
+    const showDownload = useShowDownloadStore((state) => state.show);
 
     return (
         <section className="py-16 bg-primary/5">
@@ -24,19 +19,13 @@ const CallToAction = () => {
                         <Button
                             size="lg"
                             className="bg-white text-primary hover:bg-white/90"
-                            onClick={handleDownloadClick}
+                            onClick={showDownload}
                         >
                             Download Now
                         </Button>
                     </div>
                 </div>
             </div>
-
-            {/* Download Dialog */}
-            <DownloadDialog
-                open={showDownloadDialog}
-                onOpenChange={setShowDownloadDialog}
-            />
         </section>
     );
 };

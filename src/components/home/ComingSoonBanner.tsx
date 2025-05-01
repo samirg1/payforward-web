@@ -1,6 +1,10 @@
+import useShowBannerStore from "@/state/useShowBannerStore";
 import { AlertCircle, X } from "lucide-react";
 
-const ComingSoonBanner = ({ close }: { close: () => void }) => {
+const ComingSoonBanner = () => {
+    const setShowBanner = useShowBannerStore((state) => state.setShowBanner);
+    const handleClose = () => setShowBanner(false);
+
     return (
         <div className="bg-amber-50 border border-amber-200 p-2 text-center text-sm">
             <div className="flex items-center justify-center">
@@ -15,7 +19,7 @@ const ComingSoonBanner = ({ close }: { close: () => void }) => {
                 </p>
                 <button
                     className="ml-2 text-amber-500 hover:text-amber-700 focus:outline-none"
-                    onClick={close}
+                    onClick={handleClose}
                 >
                     <X className="h-4 w-4" />
                 </button>

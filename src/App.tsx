@@ -10,6 +10,7 @@ import Index from "@/pages/Index";
 import Legal from "@/pages/Legal";
 import NotFound from "@/pages/NotFound";
 
+import DownloadDialog from "@/components/DownloadDialog";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -32,6 +33,7 @@ const App = () => (
         <TooltipProvider>
             <Toaster />
             <Sonner />
+            <DownloadDialog />
             <BrowserRouter>
                 <ScrollToTop />
                 <Routes>

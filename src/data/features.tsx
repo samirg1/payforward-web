@@ -1,6 +1,4 @@
 import {
-    CheckCircle2,
-    Clock,
     CreditCard,
     DollarSign,
     HeartHandshake,
@@ -9,14 +7,14 @@ import {
     MessagesSquare,
     Search,
     Smartphone,
-    Sparkles,
     TrendingUp,
     UserCheck,
     Wallet,
 } from "lucide-react";
 
-import linkText from "@/lib/linkText";
-import replacePlaceholderWithLinks from "@/lib/replacePlaceholderWithLinks";
+import deepLinkText from "@/lib/links/deepLinkText";
+import linkText from "@/lib/links/linkText";
+import replacePlaceholderWithLinks from "@/lib/links/replacePlaceholderWithLinks";
 
 type Feature = {
     icon: React.ReactNode;
@@ -28,8 +26,7 @@ export const customerFeatures: Feature[] = [
     {
         icon: <MapPinCheckInside className="h-6 w-6" />,
         title: "Find Local Businesses",
-        description:
-            "Search by profession, location, rating. From handymen to hairdressers to bakers — we’ve got them all.",
+        description: `Search by profession, location, rating. From handymen to hairdressers to bakers — we’ve got them all.`,
     },
     {
         icon: <CreditCard className="h-6 w-6" />,
