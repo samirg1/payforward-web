@@ -15,8 +15,10 @@ const Index = () => {
 
     useEffect(() => {
         const hash = location.hash.substring(1);
-        if (hash === "download") showDownload();
-        navigate("/");
+        if (hash === "download") {
+            showDownload();
+            navigate("/");
+        }
     }, [location, showDownload, navigate]);
 
     return (
