@@ -1,4 +1,4 @@
-import Verifications from "@/data/information/verifications";
+import Verifications from "@/data/information/Verifications";
 import Onboarding from "@/data/information/Onboarding";
 import Security from "@/data/information/Security";
 
