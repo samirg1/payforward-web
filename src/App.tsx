@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { inject } from "@vercel/analytics";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
@@ -9,11 +10,15 @@ import Faq from "@/pages/FAQ";
 import Index from "@/pages/Index";
 import Legal from "@/pages/Legal";
 import NotFound from "@/pages/NotFound";
+import Redirect from "@/pages/Redirect";
 
 import DownloadDialog from "@/components/DownloadDialog";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+
+// Initialize Vercel Analytics
+inject();
 
 // ScrollToTop component to reset scroll position on route change
 const ScrollToTop = () => {
@@ -43,6 +48,7 @@ const App = () => (
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/about" element={<AboutUs />} />
                     <Route path="/legal" element={<Legal />} />
+                    <Route path="/redirect" element={<Redirect />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

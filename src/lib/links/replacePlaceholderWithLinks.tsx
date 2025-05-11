@@ -19,6 +19,16 @@ const replacePlaceholdersWithLinks = (text: string): React.ReactNode => {
                 key={match.index}
                 href={linkHref}
                 className="text-blue-500 hover:text-blue-700 underline"
+                target={
+                    /^https?:\/\//.test(linkHref) || /^www\./.test(linkHref)
+                        ? "_blank"
+                        : undefined
+                }
+                rel={
+                    /^https?:\/\//.test(linkHref) || /^www\./.test(linkHref)
+                        ? "noopener noreferrer"
+                        : undefined
+                }
             >
                 {linkText}
             </a>,
