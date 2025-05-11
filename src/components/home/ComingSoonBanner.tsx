@@ -11,7 +11,7 @@ const ComingSoonBanner = () => {
                 <AlertCircle className="h-4 w-4 text-amber-500 mr-2" />
                 <p className="text-amber-800">
                     <span className="font-medium">
-                        Our mobile app is coming soon!
+                        Our mobile app is in the prototype phase!
                     </span>
                     <span className="ml-1 opacity-80">
                         Stay tuned for the release date.
