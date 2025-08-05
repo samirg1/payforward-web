@@ -76,9 +76,9 @@ export const businessFeatures: Feature[] = [
     },
     {
         icon: <Wallet className="h-6 w-6" />,
-        title: "Payments First",
+        title: "Payments Your Way",
         description:
-            "Get paid before you start the job. No more chasing payments or waiting for checks.",
+            "Pay upfront? No problem. Half now, half later? We’ve got you covered. Our simple payment system lets you decide how you get paid.",
     },
     {
         icon: <Link className="h-6 w-6" />,

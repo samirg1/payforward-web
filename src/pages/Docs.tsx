@@ -9,13 +9,9 @@ import PricingContent from "@/components/docs/PricingContent";
 import TutorialsContent from "@/components/docs/TutorialsContent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-type DocTabs = "getting-started" | "information" | "tutorials" | "pricing";
+type DocTabs = "information" | "tutorials" | "pricing";
 
 const tabs: { [key in DocTabs]: { title: string; Component: React.FC } } = {
-    "getting-started": {
-        title: "Getting Started",
-        Component: GettingStartedContent,
-    },
     information: {
         title: "Information",
         Component: InformationContent,
@@ -33,7 +29,7 @@ const tabs: { [key in DocTabs]: { title: string; Component: React.FC } } = {
 const Docs = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState<DocTabs>("getting-started");
+    const [activeTab, setActiveTab] = useState<DocTabs>("information");
 
     useEffect(() => {
         const hash = location.hash.substring(1);
@@ -56,8 +52,7 @@ const Docs = () => {
                             Documentation
                         </h1>
                         <p className="text-lg text-muted-foreground">
-                            Everything you need to know about using our mobile
-                            application.
+                            Everything you need to know about using our app.
                         </p>
                     </div>
 
@@ -66,7 +61,7 @@ const Docs = () => {
                         onValueChange={handleTabChange}
                         className="mb-12"
                     >
-                        <TabsList className="w-full grid grid-cols-2 md:grid-cols-4 mb-8">
+                        <TabsList className="w-full grid grid-cols-2 md:grid-cols-3 mb-8">
                             {Object.entries(tabs).map(([tabId, { title }]) => (
                                 <TabsTrigger key={tabId} value={tabId}>
                                     {title}

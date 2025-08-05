@@ -1,17 +1,21 @@
 import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 
 import { Button } from "@/components/ui/button";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+
+
+
+
 
 const HeroSection = () => {
     const showDownload = useShowDownloadStore((state) => state.show);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const navigate = useNavigate();
 
     const slides = [
         {
@@ -40,7 +44,7 @@ const HeroSection = () => {
     }, [slides.length]);
 
     const handleLearnMoreClick = () => {
-        const featuresSection = document.getElementById("features");
+        const featuresSection = document.getElementById("how-it-works");
         if (featuresSection) {
             featuresSection.scrollIntoView({ behavior: "smooth" });
         }
@@ -72,6 +76,14 @@ const HeroSection = () => {
                             onClick={handleLearnMoreClick}
                         >
                             Learn More
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            className="bg-transparent border-white text-white hover:bg-white/10"
+                            onClick={() => navigate("/docs#pricing")}
+                        >
+                            View Pricing
                         </Button>
                     </div>
                 </div>

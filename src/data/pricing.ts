@@ -17,7 +17,7 @@ type PricingPiece = {
 
 const pricing: PricingPiece[] = [
     {
-        title: "Setup and Ongoing Costs",
+        title: "Setup and Ongoing Costs - Free",
         subtitle: "Transparent pricing with no surprises.",
         description:
             "Our pricing is simple and clear. No hidden fees and no unexpected charges.",
@@ -38,7 +38,7 @@ const pricing: PricingPiece[] = [
         listType: "unordered",
     },
     {
-        title: "Payment Processing",
+        title: "Payment Processing - 3.7% + 30¢",
         subtitle: "Affordable and transparent transaction fees.",
         description:
             "To maintain the app and ensure secure payments, we charge a small fee for each transaction. Here's a breakdown:",

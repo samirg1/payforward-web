@@ -7,6 +7,7 @@ import Page from "@/pages/Page";
 import CallToAction from "@/components/home/CallToAction";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import HeroSection from "@/components/home/HeroSection";
+import HowItWorks from "@/components/home/HowItWorks";
 
 const Index = () => {
     const location = useLocation();
@@ -24,6 +25,7 @@ const Index = () => {
     return (
         <Page mainClassName="flex-1">
             <HeroSection />
+            <HowItWorks />
             <FeaturesSection />
             <CallToAction />
         </Page>

@@ -37,8 +37,7 @@ const DownloadDialog: React.FC = () => {
                     <Alert className="bg-amber-50 border-amber-200">
                         <AlertCircle className="h-4 w-4 text-amber-500" />
                         <AlertDescription className="text-amber-800">
-                            Our mobile application is currently in the prototype phase and will be available for download soon.
-                            Please check back later!
+                            Our app is in the final development phases and is set for release in early September.
                         </AlertDescription>
                     </Alert>
                     <div className="mt-6 flex flex-col space-y-3">

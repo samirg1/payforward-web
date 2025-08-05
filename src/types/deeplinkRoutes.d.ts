@@ -5,6 +5,7 @@ type StaticRoutes =
     | `search`
     | `account`
     | `account/manage-posts`
+    | `account/manage-listings`
     | `account/edit-profile`
     | `account/settings`
     | `account/settings/account`
@@ -12,7 +13,8 @@ type StaticRoutes =
     | `account/settings/business`
     | `account/settings/info`
     | `account/settings/info/verifications`
-    | `loginsignup`;
+    | `loginsignup`
+    | `payment-dashboard`;
 
 type DynamicRoutes =
     | `search?query=${string}`
@@ -20,6 +22,7 @@ type DynamicRoutes =
     | `comments/${string}`
     | `conversations/${string}`
     | `payments/${string}`
-    | `posts/${string}`;
+    | `posts/${string}`
+    | `listings/${string}`;
 
 type DeepLinkRoutes = StaticRoutes | DynamicRoutes;
