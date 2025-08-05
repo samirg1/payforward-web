@@ -1,6 +1,18 @@
 // Utility function to replace placeholders with links
-const replacePlaceholdersWithLinks = (text: string): React.ReactNode => {
-    const regex = /%([^:]+):([^%]+)%/g;
+const replacePlaceholdersWithLinks = <T extends boolean = false>(
+    text: string,
+    rawHtml?: T,
+): T extends true ? string : React.ReactNode => {
+    const regex = /%%([^:]+):([^%]+)%%/g;
+    if (rawHtml === true) {
+        return text.replace(
+            /%%([^:]+):([^%]+)%%/g,
+            (_match, linkText, linkHref) => {
+                return `<a href="https://payforward.com.au${linkHref}">${linkText}</a>`;
+            },
+        );
+    }
+
     const parts = [];
     let match: RegExpExecArray;
     let lastIndex = 0;
@@ -42,7 +54,7 @@ const replacePlaceholdersWithLinks = (text: string): React.ReactNode => {
         parts.push(text.slice(lastIndex));
     }
 
-    return parts;
+    return parts as unknown as T extends true ? string : React.ReactNode;
 };
 
 export default replacePlaceholdersWithLinks;
