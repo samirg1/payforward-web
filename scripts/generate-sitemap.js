@@ -9,13 +9,7 @@ const staticPages = [
     "/about",
     "/contact",
     "/docs",
-    "/docs#pricing",
-    "/docs#information",
-    "/docs#tutorials",
     "/legal",
-    "/legal#terms",
-    "/legal#privacy",
-    "/legal#cookies",
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

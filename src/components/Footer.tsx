@@ -20,7 +20,6 @@ const Footer = () => {
             links: [
                 { label: "Documentation", href: "/docs" },
                 { label: "FAQs", href: "/faq" },
-                { label: "Guides", href: "/docs/" },
             ],
         },
         {
