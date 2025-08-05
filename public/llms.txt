@@ -1,0 +1,50 @@
+# PayForward
+
+> PayForward is a platform that connects customers with businesses for services like lawn mowing, personal training, and plumbing — making it easy to discover, book, and pay local providers in one place.
+
+## Overview
+
+PayForward is built for Australians looking to support local businesses while simplifying the way they book and pay for services. From home maintenance to health and lifestyle needs, customers can find trusted providers nearby, read reviews, and request a job in just a few taps.
+
+For businesses, PayForward offers a streamlined way to receive job requests, communicate with customers, get paid fast, and grow their client base — all from their phone.
+
+## How It Works
+
+- Customers search for services like: Lawn mowing, Plumbing, Electricians, Personal training, Dog walking, Cleaning, Tutors, And more
+- They browse verified businesses in their area and request a job.
+- Customers can also post a listing, which a business can search for and respond to.
+- Businesses receive notifications and can respond instantly.
+- Once the job is complete, payment is handled seamlessly through the platform.
+
+## Key Features
+
+- Location-based business discovery
+- Real-time job requests and notifications
+- Built-in messaging between customer and business
+- Verified reviews and ratings
+- Easy, secure payments via Stripe
+- Business profiles with service offerings, photos, and bios
+
+## Audience
+
+- Australian-based users
+- Customers seeking reliable local services
+- Sole traders and small service businesses, expanding to larger businesses
+
+## Pages
+
+- [Homepage](https://www.payforward.com.au)
+- [About](https://www.payforward.com.au/about)
+- [FAQ](https://www.payforward.com.au/faq)
+- [Legal](https://www.payforward.com.au/legal)
+- [Contact](https://www.payforward.com.au/contact)
+
+## Legal and Trust
+
+- [Terms of Service](https://www.payforward.com.au/legal#terms)
+- [Privacy Policy](https://www.payforward.com.au/legal#privacy)
+- Stripe is used for payments
+
+## Keywords
+
+local services australia, book a tradie, hire a personal trainer, pay service provider, find a local business, plumbing near me, payforward app, australian business booking app, payforward victoria, service provider directory australia, instant job booking
