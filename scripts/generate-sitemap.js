@@ -3,14 +3,7 @@ import path from "path";
 
 const baseUrl = "https://www.payforward.com.au";
 
-const staticPages = [
-    "/",
-    "/faq",
-    "/about",
-    "/contact",
-    "/docs",
-    "/legal",
-];
+const staticPages = ["/", "/faq", "/about", "/contact", "/docs", "/legal"];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset

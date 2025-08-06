@@ -1,4 +1,3 @@
-import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -8,6 +7,8 @@ import CallToAction from "@/components/home/CallToAction";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import HeroSection from "@/components/home/HeroSection";
 import HowItWorks from "@/components/home/HowItWorks";
+
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 
 const Index = () => {
     const location = useLocation();

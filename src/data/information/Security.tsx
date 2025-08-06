@@ -13,17 +13,16 @@ const Security = () => (
         </p>
         <h3 className="mt-8 text-center underline">Your Data</h3>
         <p className="mt-4">
-            Our backend infrastructure is built on Google’s cloud platform,
-            which offers robust security features like end-to-end encryption,
-            automatic scaling, and real-time threat detection. All user data is
-            protected using authentication and built-in access controls,
-            ensuring only authorised users can access their information. Our
-            backend infrastructure means even we can't access your password, as
-            it is encrypted and stored securely out of reach.
+            Our backend infrastructure is built on Google’s Cloud Platform
+            (GCP), which offers robust security features like end-to-end
+            encryption, automatic scaling, and real-time threat detection. All
+            user data is protected using authentication and built-in access
+            controls, ensuring only authorised users can access their
+            information.
         </p>
         <p className="mt-4">
-            Google's cloud platform is used by companies like The New York
-            Times, Snapchat, Duolingo and American Express.
+            GCP is used by companies like The New York Times, Snapchat, Duolingo
+            and American Express.
         </p>
         <h3 className="mt-8 text-center underline">Your Transactions</h3>
         <p className="mt-4">

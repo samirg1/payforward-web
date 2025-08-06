@@ -1,10 +1,6 @@
 import linkText from "@/lib/links/linkText";
 import replacePlaceholdersWithLinks from "@/lib/links/replacePlaceholderWithLinks";
 
-
-
-
-
 const verificationImageURL = "/information/verification-example.png";
 
 const Verifications = () => (

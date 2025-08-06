@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 import { appStoreURL, playStoreURL } from "@/data/constants";
 
@@ -9,9 +10,16 @@ interface ShowBannerStore {
     setShowBanner: (showBanner: boolean) => void;
 }
 
-const useShowBannerStore = create<ShowBannerStore>((set) => ({
-    showBanner: !appIsAvailable,
-    setShowBanner: (showBanner: boolean) => set({ showBanner }),
-}));
+const useShowBannerStore = create<ShowBannerStore>()(
+    persist(
+        (set) => ({
+            showBanner: !appIsAvailable,
+            setShowBanner: (showBanner: boolean) => set({ showBanner }),
+        }),
+        {
+            name: "show-banner-storage",
+        },
+    ),
+);
 
 export default useShowBannerStore;

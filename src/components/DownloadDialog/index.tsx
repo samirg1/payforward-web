@@ -1,9 +1,9 @@
-import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { AlertCircle } from "lucide-react";
 import React, { useCallback } from "react";
 
 import AppleLogo from "@/components/DownloadDialog/AppleLogo";
 import GoogleLogo from "@/components/DownloadDialog/GoogleLogo";
+import FadeIn from "@/components/FadeIn";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/dialog";
 
 import { appStoreURL, playStoreURL } from "@/data/constants";
+
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 
 const DownloadDialog: React.FC = () => {
     const showDownload = useShowDownloadStore((state) => state.showDownload);
@@ -34,13 +36,19 @@ const DownloadDialog: React.FC = () => {
                     <DialogTitle>App Download</DialogTitle>
                 </DialogHeader>
                 <div className="p-4 pt-0">
-                    <Alert className="bg-amber-50 border-amber-200">
-                        <AlertCircle className="h-4 w-4 text-amber-500" />
-                        <AlertDescription className="text-amber-800">
-                            Our app is in the final development phases and is set for release in early September.
-                        </AlertDescription>
-                    </Alert>
-                    <div className="mt-6 flex flex-col space-y-3">
+                    <FadeIn duration={100}>
+                        <Alert className="bg-amber-50 border-amber-200">
+                            <AlertCircle className="h-4 w-4 text-amber-500" />
+                            <AlertDescription className="text-amber-800">
+                                Our app is in the final development phases and
+                                is set for release in early September.
+                            </AlertDescription>
+                        </Alert>
+                    </FadeIn>
+                    <FadeIn
+                        duration={150}
+                        className="mt-6 flex flex-col space-y-3"
+                    >
                         <Button
                             variant="outline"
                             className="border-gray-300 justify-start"
@@ -59,12 +67,12 @@ const DownloadDialog: React.FC = () => {
                             <GoogleLogo />
                             <span>Get it on Google Play</span>
                         </Button>
-                    </div>
-                    <div className="mt-4 flex justify-end">
+                    </FadeIn>
+                    <FadeIn duration={200} className="mt-4 flex justify-end">
                         <Button variant="outline" onClick={closeDownload}>
                             Close
                         </Button>
-                    </div>
+                    </FadeIn>
                 </div>
             </DialogContent>
         </Dialog>

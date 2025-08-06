@@ -1,5 +1,3 @@
-import useShowBannerStore from "@/state/useShowBannerStore";
-import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -7,6 +5,9 @@ import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
 import ComingSoonBanner from "@/components/home/ComingSoonBanner";
 import { Button } from "@/components/ui/button";
+
+import useShowBannerStore from "@/state/useShowBannerStore";
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 
 const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false);

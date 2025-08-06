@@ -13,14 +13,10 @@ const Redirect = () => {
         const deepLink = `payforward://${route ?? ""}`;
         setRoute(deepLink);
         if (
-            [
-                "account/settings/business?reload=true",
-                "",
-            ].includes(route ?? "")
+            ["account/settings/business?reload=true", ""].includes(route ?? "")
         ) {
             window.open(deepLink, "_self");
-        }
-        else {
+        } else {
             setIsValid(false);
         }
     }, [location, navigate]);
@@ -30,10 +26,12 @@ const Redirect = () => {
             <div className="text-center">
                 {isValid ? (
                     <>
-                        <h1 className="text-4xl font-bold mb-4">Redirecting...</h1>
+                        <h1 className="text-4xl font-bold mb-4">
+                            Redirecting...
+                        </h1>
                         <p className="text-xl text-gray-600 mb-4">
-                            If you are not redirected automatically, click the link
-                            below or close this window.
+                            If you are not redirected automatically, click the
+                            link below or close this window.
                         </p>
                         {route && (
                             <a
@@ -45,7 +43,9 @@ const Redirect = () => {
                         )}
                     </>
                 ) : (
-                    <h1 className="text-2xl font-bold text-red-600 mb-4">Invalid redirect.</h1>
+                    <h1 className="text-2xl font-bold text-red-600 mb-4">
+                        Invalid redirect.
+                    </h1>
                 )}
                 <br />
                 <br />

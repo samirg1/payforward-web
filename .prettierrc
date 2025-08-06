@@ -5,7 +5,8 @@
         "^@/components/(.*)$",
         "^@/hooks/(.*)$",
         "^@/lib/(.*)$",
-        "^@/data/(.*)$"
+        "^@/data/(.*)$",
+        "^@/state/(.*)$"
     ],
     "importOrderSeparation": true,
     "importOrderSortSpecifiers": true,

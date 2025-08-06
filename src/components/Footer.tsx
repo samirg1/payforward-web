@@ -1,7 +1,8 @@
-import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { Link } from "react-router-dom";
 
 import Logo from "@/components/Logo";
+
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();

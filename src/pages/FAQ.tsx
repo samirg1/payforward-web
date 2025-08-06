@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import Page from "@/pages/Page";
 
+import FadeIn from "@/components/FadeIn";
 import {
     Accordion,
     AccordionContent,
@@ -66,14 +67,14 @@ const Faq = () => {
             <Page>
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto">
-                        <div className="text-center mb-12">
+                        <FadeIn duration={100} className="text-center mb-12">
                             <h1 className="text-4xl font-bold mb-4">
                                 Frequently Asked Questions
                             </h1>
                             <p className="text-lg text-muted-foreground">
                                 Find answers to common questions about our app.
                             </p>
-                        </div>
+                        </FadeIn>
 
                         <Accordion
                             type="single"
@@ -83,16 +84,21 @@ const Faq = () => {
                             onValueChange={setOpenItem}
                         >
                             {faqs.map((faq, index) => (
-                                <AccordionItem key={index} value={`${index}`}>
-                                    <AccordionTrigger className="text-left">
-                                        {faq.question}
-                                    </AccordionTrigger>
-                                    <AccordionContent>
-                                        <p className="text-muted-foreground">
-                                            {faq.answer}
-                                        </p>
-                                    </AccordionContent>
-                                </AccordionItem>
+                                <FadeIn
+                                    key={faq.id}
+                                    duration={index * 25 + 100}
+                                >
+                                    <AccordionItem key={faq.id} value={faq.id}>
+                                        <AccordionTrigger className="text-left">
+                                            {faq.question}
+                                        </AccordionTrigger>
+                                        <AccordionContent>
+                                            <p className="text-muted-foreground">
+                                                {faq.answer}
+                                            </p>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                </FadeIn>
                             ))}
                         </Accordion>
 
@@ -103,7 +109,10 @@ const Faq = () => {
                             </div>
                         )}
 
-                        <div className="bg-muted/50 p-6 rounded-lg text-center">
+                        <FadeIn
+                            duration={150}
+                            className="bg-muted/50 p-6 rounded-lg text-center"
+                        >
                             <h3 className="font-semibold mb-2">
                                 Still have questions?
                             </h3>
@@ -117,7 +126,7 @@ const Faq = () => {
                             >
                                 Contact Support
                             </a>
-                        </div>
+                        </FadeIn>
                     </div>
                 </div>
             </Page>

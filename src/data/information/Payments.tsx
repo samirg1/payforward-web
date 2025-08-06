@@ -2,10 +2,6 @@ import deepLinkText from "@/lib/links/deepLinkText";
 import linkText from "@/lib/links/linkText";
 import replacePlaceholdersWithLinks from "@/lib/links/replacePlaceholderWithLinks";
 
-
-
-
-
 const Payments = () => (
     <div>
         <h3 className="mb-4 text-center underline">Overview</h3>
@@ -63,10 +59,12 @@ const Payments = () => (
         <h3 className="mt-12 text-center underline">Disputes</h3>
         <p className="mt-4">
             Disputes are to be handled{" "}
-            <p className="font-semibold underline italic inline">directly between the customer and the business.</p> If a customer
-            has an issue with a payment, they can contact the business directly
-            through the app to resolve the issue or by any other means. Only if the issue cannot be
-            resolved the customer can{" "}
+            <p className="font-semibold underline italic inline">
+                directly between the customer and the business.
+            </p>{" "}
+            If a customer has an issue with a payment, they can contact the
+            business directly through the app to resolve the issue or by any
+            other means. Only if the issue cannot be resolved the customer can{" "}
             {replacePlaceholdersWithLinks(linkText("contact us", "contact"))}{" "}
             for assistance. We will do our best to help resolve the issue, but
             we cannot guarantee a resolution. It is important to note that
@@ -75,15 +73,9 @@ const Payments = () => (
             users.
         </p>
         <p className="mt-4">
-            Please also note that refunds given by business or initiated by us may
-            not include any transaction fees that were charged at the time of the
-            payment.
-        </p>
-        <p className="mt-4">
-            Please note, once the initial onboarding flow is complete, you may
-            have to re-enter it to fill in any missing information. Some fields
-            can be easily missed, so please ensure you thoroughly check the
-            onboarding flow.
+            Please also note that refunds given by business or initiated by us
+            may not include any transaction fees that were charged at the time
+            of the payment.
         </p>
     </div>
 );

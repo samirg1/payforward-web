@@ -2,6 +2,8 @@ import { Mail, Phone } from "lucide-react";
 
 import Page from "@/pages/Page";
 
+import FadeIn from "@/components/FadeIn";
+
 import {
     feedbackEmail,
     infoEmail,
@@ -16,15 +18,18 @@ const Contact = () => {
         <Page>
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto">
-                    <div className="text-center mb-12">
+                    <FadeIn duration={100} className="text-center mb-12">
                         <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
                         <p className="text-lg text-muted-foreground">
                             Have questions or feedback? We'd love to hear from
                             you.
                         </p>
-                    </div>
+                    </FadeIn>
 
-                    <div className="bg-white rounded-lg shadow-sm border p-8">
+                    <FadeIn
+                        duration={150}
+                        className="bg-white rounded-lg shadow-sm border p-8"
+                    >
                         <h2 className="text-2xl font-semibold mb-6">
                             Get in Touch
                         </h2>
@@ -92,7 +97,7 @@ const Contact = () => {
                                 </div>
                             )}
                         </div>
-                    </div>
+                    </FadeIn>
                 </div>
             </div>
         </Page>

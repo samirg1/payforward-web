@@ -1,3 +1,4 @@
+import FadeIn from "../FadeIn";
 import {
     ArrowDown,
     ArrowLeft,
@@ -5,22 +6,35 @@ import {
     ArrowUp,
     Crosshair,
     FileSearch,
+    Handshake,
     Megaphone,
     MessageCircle,
     Repeat,
     Search,
+    Waypoints,
 } from "lucide-react";
 
 const HowItWorks = () => {
     return (
-        <section id="how-it-works" className="w-full max-w-6xl mx-auto px-4 py-16">
-            <h2 className="text-4xl font-bold text-center mb-14">
-                How It Works
-            </h2>
+        <section
+            id="how-it-works"
+            className="w-full max-w-6xl mx-auto px-4 py-16"
+        >
+            <FadeIn duration={50}>
+                <h2 className="text-4xl font-bold text-center mb-14">
+                    How It Works
+                </h2>
+            </FadeIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+            <FadeIn
+                duration={50}
+                className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start"
+            >
                 {/* Customers */}
-                <div className="group bg-muted rounded-2xl p-6 shadow-md transition hover:shadow-xl hover:bg-muted/80">
+                <FadeIn
+                    duration={100}
+                    className="group bg-muted rounded-2xl p-6 shadow-md transition hover:shadow-xl hover:bg-muted/80"
+                >
                     <h3 className="text-2xl font-semibold mb-6 text-primary">
                         Customers
                     </h3>
@@ -37,36 +51,106 @@ const HowItWorks = () => {
                             <MessageCircle className="w-5 h-5 text-primary" />
                             Chat & hire directly
                         </li>
+                        <li className="flex items-center gap-3">
+                            <Handshake className="w-5 h-5 text-primary" />
+                            Promote their own business / side hustle
+                        </li>
                     </ul>
-                </div>
+                </FadeIn>
 
                 {/* Platform */}
-                <div className="flex flex-col items-center text-center gap-6">
+                <FadeIn
+                    duration={150}
+                    className="flex flex-row md:flex-col items-center text-center justify-center md:gap-12"
+                >
+                    <FadeIn
+                        duration={200}
+                        className="absolute md:w-[350px] w-[325px] h-[200px]"
+                    >
+                        <svg
+                            viewBox="0 0 350 200"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <defs>
+                                <linearGradient
+                                    id="movingGradient"
+                                    x1="0%"
+                                    y1="0%"
+                                    x2="100%"
+                                    y2="0%"
+                                    gradientUnits="userSpaceOnUse"
+                                >
+                                    <stop
+                                        offset="0%"
+                                        stop-color="#27489d"
+                                        stop-opacity="0.1"
+                                    />
+                                    <stop
+                                        offset="50%"
+                                        stop-color="#27489d"
+                                        stop-opacity="1"
+                                    />
+                                    <stop
+                                        offset="100%"
+                                        stop-color="#27489d"
+                                        stop-opacity="0.1"
+                                    />
+                                    <animateTransform
+                                        attributeName="gradientTransform"
+                                        type="rotate"
+                                        from="0 175 100"
+                                        to="360 175 100"
+                                        dur="3s"
+                                        repeatCount="indefinite"
+                                    />
+                                </linearGradient>
+                            </defs>
+
+                            <rect
+                                x="25"
+                                y="25"
+                                width="300"
+                                height="150"
+                                rx="25"
+                                ry="25"
+                                fill="none"
+                                stroke-width={10}
+                                stroke="url(#movingGradient)"
+                            />
+                        </svg>
+                    </FadeIn>
+
                     {/* Top arrow (mobile) */}
-                    <ArrowUp className="w-6 h-6 text-primary block md:hidden" />
+                    <ArrowUp className="w-6 h-6 text-primary md:hidden" />
 
                     {/* Left arrow (desktop) */}
                     <ArrowRight className="w-6 h-6 text-primary hidden md:block" />
 
                     {/* Platform card */}
-                    <div className="bg-primary/10 rounded-xl px-6 py-4 shadow-inner transition-all hover:scale-105">
+                    <FadeIn
+                        duration={200}
+                        className="px-6 py-4 transition-all hover:scale-105"
+                    >
                         <p className="text-lg font-semibold text-primary mb-1">
                             PayForward
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            Smart matching, notifications, discovery
+                            Smart matching, notifications, marketplace
                         </p>
-                    </div>
+                    </FadeIn>
 
                     {/* Bottom arrow (mobile) */}
-                    <ArrowDown className="w-6 h-6 text-primary block md:hidden" />
+                    <ArrowDown className="w-6 h-6 text-primary md:hidden" />
 
                     {/* Right arrow (desktop) */}
                     <ArrowLeft className="w-6 h-6 text-primary hidden md:block" />
-                </div>
+                </FadeIn>
 
                 {/* Businesses */}
-                <div className="group bg-muted rounded-2xl p-6 shadow-md transition hover:shadow-xl hover:bg-muted/80">
+                <FadeIn
+                    duration={100}
+                    className="group bg-muted rounded-2xl p-6 shadow-md transition hover:shadow-xl hover:bg-muted/80"
+                >
                     <h3 className="text-2xl font-semibold mb-6 text-primary">
                         Businesses
                     </h3>
@@ -83,17 +167,22 @@ const HowItWorks = () => {
                             <MessageCircle className="w-5 h-5 text-primary" />
                             Message & win jobs
                         </li>
+                        <li className="flex items-center gap-3">
+                            <Waypoints className="w-5 h-5 text-primary" />
+                            Connect with their local community
+                        </li>
                     </ul>
-                </div>
-            </div>
+                </FadeIn>
+            </FadeIn>
 
             {/* Loop footer */}
-            <div className="flex justify-center mt-14 text-muted-foreground">
-                <div className="flex items-center gap-2 text-sm">
-                    <Repeat className="w-4 h-4 text-muted-foreground" />A
-                    continuous loop of opportunities on both sides
-                </div>
-            </div>
+            <FadeIn
+                duration={200}
+                className="flex justify-center mt-14 text-muted-foreground items-center gap-2 text-sm"
+            >
+                <Repeat className="w-4 h-4 text-muted-foreground" />A continuous
+                loop of opportunities on both sides
+            </FadeIn>
         </section>
     );
 };

@@ -1,5 +1,6 @@
-import useShowBannerStore from "@/state/useShowBannerStore";
 import { AlertCircle, X } from "lucide-react";
+
+import useShowBannerStore from "@/state/useShowBannerStore";
 
 const ComingSoonBanner = () => {
     const setShowBanner = useShowBannerStore((state) => state.setShowBanner);

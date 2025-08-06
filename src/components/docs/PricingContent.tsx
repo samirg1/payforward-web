@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import ConditionalWrapper from "@/components/ConditionalWrapper";
+import FadeIn from "@/components/FadeIn";
 import {
     Card,
     CardContent,
@@ -53,10 +54,10 @@ const extraToComponent: Record<
 
 const PricingContent = () => {
     return (
-        <>
+        <FadeIn duration={200}>
             {pricing.map((section, index) => (
                 <Card
-                    key={`getting-started-content-${section.title}-${index}`}
+                    key={`pricing-content-${section.title}-${index}`}
                     className={`${index === pricing.length - 1 ? "mb-0" : "mb-8"}`}
                 >
                     <CardHeader>
@@ -96,7 +97,7 @@ const PricingContent = () => {
                     </CardContent>
                 </Card>
             ))}
-        </>
+        </FadeIn>
     );
 };
 

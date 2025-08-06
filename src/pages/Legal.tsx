@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import Page from "@/pages/Page";
 
+import FadeIn from "@/components/FadeIn";
 import CookiesContent from "@/components/legal/CookiesContent";
 import PrivacyContent from "@/components/legal/PrivacyContent";
 import TermsContent from "@/components/legal/TermsContent";
@@ -33,7 +34,7 @@ const Legal = () => {
         <Page>
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
-                    <div className="mb-10">
+                    <FadeIn duration={100} className="mb-10">
                         <h1 className="text-4xl font-bold mb-4">
                             Legal Information
                         </h1>
@@ -41,36 +42,39 @@ const Legal = () => {
                             Important legal information about using our
                             services.
                         </p>
-                    </div>
+                    </FadeIn>
 
                     <Tabs
                         value={activeTab}
                         onValueChange={handleTabChange}
                         className="mb-12"
                     >
-                        <TabsList className="w-full md:w-auto grid grid-cols-3 mb-8">
-                            <TabsTrigger value="terms">
-                                Terms of Service
-                            </TabsTrigger>
-                            <TabsTrigger value="privacy">
-                                Privacy Policy
-                            </TabsTrigger>
-                            <TabsTrigger value="cookies">
-                                Cookie Policy
-                            </TabsTrigger>
-                        </TabsList>
+                        <FadeIn duration={120}>
+                            <TabsList className="w-full md:w-auto grid grid-cols-3 mb-8">
+                                <TabsTrigger value="terms">
+                                    Terms of Service
+                                </TabsTrigger>
+                                <TabsTrigger value="privacy">
+                                    Privacy Policy
+                                </TabsTrigger>
+                                <TabsTrigger value="cookies">
+                                    Cookie Policy
+                                </TabsTrigger>
+                            </TabsList>
+                        </FadeIn>
+                        <FadeIn key={activeTab} duration={200}>
+                            <TabsContent value="terms">
+                                <TermsContent />
+                            </TabsContent>
 
-                        <TabsContent value="terms">
-                            <TermsContent />
-                        </TabsContent>
+                            <TabsContent value="privacy">
+                                <PrivacyContent />
+                            </TabsContent>
 
-                        <TabsContent value="privacy">
-                            <PrivacyContent />
-                        </TabsContent>
-
-                        <TabsContent value="cookies">
-                            <CookiesContent />
-                        </TabsContent>
+                            <TabsContent value="cookies">
+                                <CookiesContent />
+                            </TabsContent>
+                        </FadeIn>
                     </Tabs>
                 </div>
             </div>

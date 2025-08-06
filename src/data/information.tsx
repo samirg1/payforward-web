@@ -1,9 +1,9 @@
-import Verifications from "@/data/information/Verifications";
-import Onboarding from "@/data/information/Onboarding";
-import Security from "@/data/information/Security";
 import Listings from "@/data/information/Listings";
-import Ratings from "@/data/information/Ratings";
+import Onboarding from "@/data/information/Onboarding";
 import Payments from "@/data/information/Payments";
+import Ratings from "@/data/information/Ratings";
+import Security from "@/data/information/Security";
+import Verifications from "@/data/information/Verifications";
 
 interface InformationSection {
     id: string;
