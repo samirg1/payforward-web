@@ -1,9 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { appStoreURL, playStoreURL } from "@/data/constants";
-
-const appIsAvailable = appStoreURL || playStoreURL;
+import { APP_IS_AVAILABLE } from "@/data/constants";
 
 interface ShowBannerStore {
     showBanner: boolean;
@@ -13,7 +11,7 @@ interface ShowBannerStore {
 const useShowBannerStore = create<ShowBannerStore>()(
     persist(
         (set) => ({
-            showBanner: !appIsAvailable,
+            showBanner: !APP_IS_AVAILABLE,
             setShowBanner: (showBanner: boolean) => set({ showBanner }),
         }),
         {

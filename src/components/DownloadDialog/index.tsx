@@ -13,7 +13,7 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 
-import { appStoreURL, playStoreURL } from "@/data/constants";
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/data/constants";
 
 import useShowDownloadStore from "@/state/useShowDownloadStore";
 
@@ -52,8 +52,8 @@ const DownloadDialog: React.FC = () => {
                         <Button
                             variant="outline"
                             className="border-gray-300 justify-start"
-                            disabled={!appStoreURL}
-                            onClick={handleDownloadClick(appStoreURL)}
+                            disabled={!APP_STORE_URL}
+                            onClick={handleDownloadClick(APP_STORE_URL)}
                         >
                             <AppleLogo />
                             <span>Download on the App Store</span>
@@ -61,8 +61,8 @@ const DownloadDialog: React.FC = () => {
                         <Button
                             variant="outline"
                             className="border-gray-300 justify-start"
-                            disabled={!playStoreURL}
-                            onClick={handleDownloadClick(playStoreURL)}
+                            disabled={!PLAY_STORE_URL}
+                            onClick={handleDownloadClick(PLAY_STORE_URL)}
                         >
                             <GoogleLogo />
                             <span>Get it on Google Play</span>

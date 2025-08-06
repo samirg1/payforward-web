@@ -1,3 +1,5 @@
+import { DOMAIN_NAME } from "@/data/constants";
+
 // Utility function to replace placeholders with links
 const replacePlaceholdersWithLinks = <T extends boolean = false>(
     text: string,
@@ -8,7 +10,7 @@ const replacePlaceholdersWithLinks = <T extends boolean = false>(
         return text.replace(
             /%%([^:]+):([^%]+)%%/g,
             (_match, linkText, linkHref) => {
-                return `<a href="https://payforward.com.au${linkHref}">${linkText}</a>`;
+                return `<a href="https://${DOMAIN_NAME}${linkHref}">${linkText}</a>`;
             },
         );
     }
