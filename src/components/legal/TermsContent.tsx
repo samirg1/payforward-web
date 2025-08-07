@@ -8,7 +8,7 @@ const TermsContent = () => {
             <div>
                 <h2 className="text-2xl font-bold mb-4">Terms of Service</h2>
                 <p className="text-muted-foreground mb-4">
-                    Last updated: April 11, 2025
+                    Last updated: August 7, 2025
                 </p>
                 <p className="text-muted-foreground mb-4">
                     Welcome to PayForward. By accessing or using our services,

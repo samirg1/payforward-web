@@ -14,6 +14,11 @@ const terms: TermsContentPiece[] = [
             "By accessing or using PayForward's services, including our website and mobile application, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing our services.",
     },
     {
+        title: "Age Requirement",
+        description:
+            "You must be at least 16 years old to use our services. By using our services, you represent and warrant that you meet this age requirement.",
+    },
+    {
         title: "Use of Service",
         description:
             "You agree to use our services only for lawful purposes and in accordance with these Terms. You agree not to use our services:",
