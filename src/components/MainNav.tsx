@@ -6,22 +6,40 @@ import Logo from "@/components/Logo";
 import ComingSoonBanner from "@/components/home/ComingSoonBanner";
 import { Button } from "@/components/ui/button";
 
+import { NAV_ITEMS } from "@/data/constants";
+
+import useCurrentPageStore from "@/state/useCurrentPageStore";
 import useShowBannerStore from "@/state/useShowBannerStore";
 import useShowDownloadStore from "@/state/useShowDownloadStore";
+
+const NavLink = ({
+    label,
+    href,
+    isActive,
+}: {
+    label: string;
+    href: string;
+    isActive: boolean;
+}) => (
+    <Link to={href}>
+        <Button
+            variant={isActive ? "default" : "link"}
+            className={`font-medium transition-colors
+                hover:bg-primary
+                hover:text-white
+             ${isActive ? "bg-muted-foreground text-white" : "text-muted-foreground"}
+             border-muted-foreground p-2 rounded-md`}
+        >
+            {label}
+        </Button>
+    </Link>
+);
 
 const MainNav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const showDownload = useShowDownloadStore((state) => state.show);
-
     const showBanner = useShowBannerStore((state) => state.showBanner);
-
-    const navItems = [
-        { label: "Home", href: "/" },
-        { label: "Docs", href: "/docs" },
-        { label: "FAQ", href: "/faq" },
-        { label: "About", href: "/about" },
-        { label: "Contact", href: "/contact" },
-    ];
+    const currentPage = useCurrentPageStore((state) => state.currentPage);
 
     return (
         <header className="fixed w-full bg-background backdrop-blur-sm z-50 border-b">
@@ -32,14 +50,13 @@ const MainNav = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-6">
-                    {navItems.map((item) => (
-                        <Link
+                    {NAV_ITEMS.map((item) => (
+                        <NavLink
                             key={item.label}
-                            to={item.href}
-                            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                        >
-                            {item.label}
-                        </Link>
+                            label={item.label}
+                            href={item.href}
+                            isActive={currentPage === item.label}
+                        />
                     ))}
                     <Button onClick={showDownload}>Download App</Button>
                 </nav>
@@ -59,15 +76,13 @@ const MainNav = () => {
                 <div className="md:hidden bg-background border-b">
                     <div className="container mx-auto px-4 py-3">
                         <nav className="flex flex-col space-y-4">
-                            {navItems.map((item) => (
-                                <Link
+                            {NAV_ITEMS.map((item) => (
+                                <NavLink
                                     key={item.label}
-                                    to={item.href}
-                                    className="text-sm font-medium py-2 text-muted-foreground hover:text-primary transition-colors"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {item.label}
-                                </Link>
+                                    label={item.label}
+                                    href={item.href}
+                                    isActive={currentPage === item.label}
+                                />
                             ))}
                             <Button className="w-full" onClick={showDownload}>
                                 Download App

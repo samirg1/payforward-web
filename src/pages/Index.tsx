@@ -24,7 +24,7 @@ const Index = () => {
     }, [location, showDownload, navigate]);
 
     return (
-        <Page mainClassName="flex-1">
+        <Page navLinkFrom="Home" mainClassName="flex-1">
             <HeroSection />
             <HowItWorks />
             <FeaturesSection />

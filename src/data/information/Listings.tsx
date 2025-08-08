@@ -1,6 +1,3 @@
-import deepLinkText from "@/lib/links/deepLinkText";
-import replacePlaceholdersWithLinks from "@/lib/links/replacePlaceholderWithLinks";
-
 const Listings = () => (
     <div>
         <p className="mb-4">
@@ -9,7 +6,13 @@ const Listings = () => (
             <p className="mb-4 font-semibold inline">find them</p>.
         </p>
         <p className="mb-4">
-            When a user posts a listings, a notification is sent to all
+            A listing includes a title, description, and service title. You can
+            also optionally include a location if applicable and a budget for
+            the service. This allows businesses to quickly understand what the
+            customer is looking for and respond accordingly.
+        </p>
+        <p className="mb-4">
+            When a user posts a listing, a notification is sent to all
             businesses that match the listing criteria (location and service
             title). This allows businesses to quickly find and respond to
             potential customers.

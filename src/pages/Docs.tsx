@@ -1,17 +1,22 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useMemo } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Page from "@/pages/Page";
 
 import FadeIn from "@/components/FadeIn";
 import InformationContent from "@/components/docs/InformationContent";
 import PricingContent from "@/components/docs/PricingContent";
+import QuickStartContent from "@/components/docs/QuickStartContent";
 import TutorialsContent from "@/components/docs/TutorialsContent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-type DocTabs = "information" | "tutorials" | "pricing";
+type DocTabs = "information" | "tutorials" | "pricing" | "quick-start";
 
 const tabs: { [key in DocTabs]: { title: string; Component: React.FC } } = {
+    "quick-start": {
+        title: "Quick Start",
+        Component: QuickStartContent,
+    },
     information: {
         title: "Information",
         Component: InformationContent,
@@ -27,24 +32,16 @@ const tabs: { [key in DocTabs]: { title: string; Component: React.FC } } = {
 };
 
 const Docs = () => {
-    const location = useLocation();
+    const { section } = useParams<{ section?: DocTabs }>();
     const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState<DocTabs>("information");
 
-    useEffect(() => {
-        const hash = location.hash.substring(1);
-
-        const tab = hash.split("-")[0] as DocTabs;
-        if (Object.keys(tabs).includes(tab)) setActiveTab(tab);
-    }, [location]);
-
-    const handleTabChange = (value: string) => {
-        setActiveTab(value as DocTabs);
-        navigate(`#${value}`);
-    };
+    const activeTab = useMemo(() => {
+        if (!section) return "quick-start";
+        return section as DocTabs;
+    }, [section]);
 
     return (
-        <Page>
+        <Page navLinkFrom="Docs">
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                     <FadeIn duration={100} className="mb-10">
@@ -58,11 +55,17 @@ const Docs = () => {
 
                     <Tabs
                         value={activeTab}
-                        onValueChange={handleTabChange}
+                        onValueChange={(value) =>
+                            navigate(
+                                value in tabs
+                                    ? `/docs/${value}`
+                                    : "/docs/quick-start",
+                            )
+                        }
                         className="mb-12"
                     >
                         <FadeIn duration={120}>
-                            <TabsList className="w-full grid grid-cols-2 md:grid-cols-3 mb-8">
+                            <TabsList className="w-full grid grid-cols-2 md:grid-cols-4 mb-8">
                                 {Object.entries(tabs).map(
                                     ([tabId, { title }]) => (
                                         <TabsTrigger key={tabId} value={tabId}>

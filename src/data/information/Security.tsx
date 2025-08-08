@@ -52,11 +52,11 @@ const Security = () => (
             any content that flags our content moderation system. If we detect
             any activity that we deem goes against our{" "}
             {replacePlaceholdersWithLinks(
-                linkText("Terms of Service", "/legal#terms"),
+                linkText("Terms of Service", "/legal/terms"),
             )}{" "}
             or{" "}
             {replacePlaceholdersWithLinks(
-                linkText("Privacy Policy", "/legal#privacy"),
+                linkText("Privacy Policy", "/legal/privacy"),
             )}
             , we will take action to remove the content and/or account from our
             platform.

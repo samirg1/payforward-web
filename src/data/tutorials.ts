@@ -13,7 +13,7 @@ export type Tutorial = {
 
 const tutorialsList: Tutorial[] = [];
 //     {
-//         id: "gettingStartedApp",
+//         id: "getting-started-app",
 //         title: "Getting Started with Our App",
 //         description: "Learn the basics of using our mobile application",
 //         steps: [
@@ -38,7 +38,7 @@ const tutorialsList: Tutorial[] = [];
 //         ],
 //     },
 //     {
-//         id: "advancedFeatures",
+//         id: "advanced-features",
 //         title: "Advanced Features Guide",
 //         description: "Discover the powerful features available in our app",
 //         steps: [

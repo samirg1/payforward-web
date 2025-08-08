@@ -14,7 +14,7 @@ const Payments = () => (
         <p className="mb-4 font-semibold">
             A business that is not{" "}
             {replacePlaceholdersWithLinks(
-                linkText("onboarded", "docs#information-onboarding"),
+                linkText("onboarded", "docs/information/onboarding"),
             )}{" "}
             will not be able to receive payments.
         </p>

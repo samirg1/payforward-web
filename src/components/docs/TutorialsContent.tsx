@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import TutorialItem from "@/components/docs/TutorialItem";
@@ -6,26 +6,21 @@ import TutorialItem from "@/components/docs/TutorialItem";
 import tutorials from "@/data/tutorials";
 
 const TutorialsContent = () => {
-    const [activeTutorial, setActiveTutorial] = React.useState<string | null>(
-        null,
-    );
+    const [activeTutorial, setActiveTutorial] = useState<string | null>(null);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
         const hash = location.hash.substring(1);
-        if (!hash.startsWith("tutorials-")) return;
-
-        const sectionId = hash.replace("tutorials-", "");
-        setActiveTutorial(sectionId);
-        const section = document.getElementById(sectionId);
+        setActiveTutorial(hash);
+        const section = document.getElementById(hash);
         if (section)
             section.scrollIntoView({ behavior: "smooth", block: "center" });
     }, [location]);
 
     const handleSectionClick = (sectionId: string) => {
         if (activeTutorial === sectionId) return setActiveTutorial(null);
-        navigate(`#tutorials-${sectionId}`);
+        navigate(`#${sectionId}`);
         setActiveTutorial((prev) => (prev === sectionId ? null : sectionId));
     };
 

@@ -1,39 +1,19 @@
 import FadeIn from "../FadeIn";
 import { Separator } from "../ui/separator";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import information from "@/data/information";
 
 const InformationContent = () => {
-    const location = useLocation();
     const navigate = useNavigate();
-
-    const [activeSectionId, setActiveSectionId] = useState<string>(
-        information[0]?.id || "",
-    );
+    const { subSection } = useParams<{ subSection?: string }>();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    // Support for deep linking
-    useEffect(() => {
-        const hash = location.hash.substring(1);
-        if (!hash.startsWith("information-")) return;
-        const sectionId = hash.replace("information-", "");
-        const exists = information.some((s) => s.id === sectionId);
-        if (exists) {
-            setActiveSectionId(sectionId);
-        }
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, [location]);
-
-    const handleSectionClick = (id: string) => {
-        setActiveSectionId(id);
-        navigate(`#information-${id}`);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
-    const activeSection = information.find((s) => s.id === activeSectionId);
+    const activeSection = useMemo(() => {
+        if (!subSection) return information[0];
+        return information.find((section) => section.id === subSection);
+    }, [subSection]);
 
     return (
         <div className="flex flex-col md:flex-row md:items-start gap-8 mt-12">
@@ -57,9 +37,11 @@ const InformationContent = () => {
                         {information.map((section) => (
                             <button
                                 key={section.id}
-                                onClick={() => handleSectionClick(section.id)}
+                                onClick={() =>
+                                    navigate(`/docs/information/${section.id}`)
+                                }
                                 className={`block w-full text-left px-3 py-2 rounded-md transition-colors text-sm ${
-                                    activeSectionId === section.id
+                                    activeSection?.id === section.id
                                         ? "bg-primary/10 font-semibold"
                                         : "hover:bg-muted"
                                 }`}
@@ -76,9 +58,9 @@ const InformationContent = () => {
                                 {information.map((section) => (
                                     <Link
                                         key={section.id}
-                                        to={`#information-${section.id}`}
+                                        to={`/docs/information/${section.id}`}
                                         className={`text-sm font-medium p-2 hover:text-primary transition-colors rounded-lg ${
-                                            activeSectionId === section.id
+                                            activeSection?.id === section.id
                                                 ? "bg-primary/10 font-semibold"
                                                 : "hover:bg-muted"
                                         }`}
@@ -95,14 +77,14 @@ const InformationContent = () => {
 
             {/* Content */}
             <section className="flex-1">
-                <FadeIn key={activeSectionId} duration={200}>
+                <FadeIn key={activeSection?.id} duration={200}>
                     {activeSection ? (
                         <div>
                             <h2 className="text-2xl font-bold mb-4">
                                 {activeSection.title}
                             </h2>
                             <div className="text-muted-foreground">
-                                {activeSection.content}
+                                {activeSection.content()}
                             </div>
                         </div>
                     ) : (

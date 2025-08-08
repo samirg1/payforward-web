@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
 
 import useShowDownloadStore from "@/state/useShowDownloadStore";
+import { SOCIAL_LINKS_MAPPINGS } from "@/data/constants";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -12,14 +13,23 @@ const Footer = () => {
         {
             title: "Product",
             links: [
-                { label: "Download", href: "#", onClick: showDownload },
-                { label: "Pricing", href: "/docs#pricing" },
+                { label: "Download", href: "/", onClick: showDownload },
+                { label: "Pricing", href: "/docs/pricing" },
             ],
         },
         {
             title: "Resources",
             links: [
-                { label: "Documentation", href: "/docs" },
+                { label: "All Documentation", href: "/docs" },
+                { label: "Tutorials", href: "/docs/tutorials" },
+                { label: "Quick Start", href: "/docs/quick-start" },
+                { label: "Payments", href: "/docs/information/payments" },
+                { label: "Onboarding", href: "/docs/information/onboarding" },
+                { label: "Security", href: "/docs/information/security" },
+                {
+                    label: "Verifications",
+                    href: "/docs/information/verifications",
+                },
                 { label: "FAQs", href: "/faq" },
             ],
         },
@@ -44,6 +54,21 @@ const Footer = () => {
                         <p className="text-muted-foreground mb-4 max-w-xs">
                             Empowering businesses. Connecting communities.
                         </p>
+                        <div className="flex space-x-4">
+                            {Object.entries(SOCIAL_LINKS_MAPPINGS).map(([key, { url, Icon }]) => {
+                                if (!url) return null;
+                                return (
+                                    <a
+                                        key={key}
+                                        href={url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Icon className="w-[24px] h-[24px]" />
+                                    </a>
+                                );
+                            })}
+                        </div>
                     </div>
 
                     {sections.map((section) => (
@@ -83,19 +108,19 @@ const Footer = () => {
                     </p>
                     <div className="flex items-center space-x-4 mt-4 md:mt-0">
                         <Link
-                            to="/legal#terms"
+                            to="/legal/terms"
                             className="text-muted-foreground hover:text-primary"
                         >
                             Terms
                         </Link>
                         <Link
-                            to="/legal#privacy"
+                            to="/legal/privacy"
                             className="text-muted-foreground hover:text-primary"
                         >
                             Privacy
                         </Link>
                         <Link
-                            to="/legal#cookies"
+                            to="/legal/cookies"
                             className="text-muted-foreground hover:text-primary"
                         >
                             Cookies

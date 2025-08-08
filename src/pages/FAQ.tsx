@@ -64,7 +64,7 @@ const Faq = () => {
                     })}
                 </script>
             </Helmet>
-            <Page>
+            <Page navLinkFrom="FAQ">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto">
                         <FadeIn duration={100} className="text-center mb-12">

@@ -12,7 +12,6 @@ import {
     Wallet,
 } from "lucide-react";
 
-import deepLinkText from "@/lib/links/deepLinkText";
 import linkText from "@/lib/links/linkText";
 import replacePlaceholderWithLinks from "@/lib/links/replacePlaceholderWithLinks";
 
@@ -49,7 +48,7 @@ export const customerFeatures: Feature[] = [
     {
         icon: <DollarSign className="h-6 w-6" />,
         title: "Free to Use - Always",
-        description: `No fees for customers, ever. We also ensure you don't cop the businesses' transaction fees. See ${linkText("Terms of Service", "/legal#terms")}.`,
+        description: `No fees for customers, ever. We also ensure you don't cop the businesses' transaction fees. See ${linkText("Terms of Service", "/legal/terms")}.`,
     },
 ].map((feature) => ({
     ...feature,
@@ -60,7 +59,7 @@ export const businessFeatures: Feature[] = [
     {
         icon: <TrendingUp className="h-6 w-6" />,
         title: "Pay as You Earn Only",
-        description: `Setup and maintenance of your account are always free. We only charge a small fee when you get paid. See ${linkText("Pricing", "/docs#pricing")}.`,
+        description: `Setup and maintenance of your account are always free. We only charge a small fee when you get paid. See ${linkText("Pricing", "/docs/pricing")}.`,
     },
     {
         icon: <Smartphone className="h-6 w-6" />,

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useMemo } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Page from "@/pages/Page";
 
@@ -10,25 +10,13 @@ import TermsContent from "@/components/legal/TermsContent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Legal = () => {
-    const location = useLocation();
     const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState("terms");
-
-    useEffect(() => {
-        const hash = location.hash.substring(1);
-        if (hash === "privacy" || hash === "cookies" || hash === "terms") {
-            setActiveTab(hash);
-            // Scroll to top when changing tabs via URL hash
-            window.scrollTo(0, 0);
-        }
-    }, [location]);
-
-    const handleTabChange = (value: string) => {
-        setActiveTab(value);
-        navigate(`#${value}`);
-        // Scroll to top when changing tabs via UI interaction
-        window.scrollTo(0, 0);
-    };
+    const { section } = useParams<{ section?: string }>();
+    const activeTab = useMemo(() => {
+        if (!section || !["terms", "privacy", "cookies"].includes(section))
+            return "terms";
+        return section;
+    }, [section]);
 
     return (
         <Page>
@@ -46,7 +34,7 @@ const Legal = () => {
 
                     <Tabs
                         value={activeTab}
-                        onValueChange={handleTabChange}
+                        onValueChange={(value) => navigate(`/legal/${value}`)}
                         className="mb-12"
                     >
                         <FadeIn duration={120}>

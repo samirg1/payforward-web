@@ -21,7 +21,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 inject();
 
 // ScrollToTop component to reset scroll position on route change
-const ScrollToTop = () => {
+const ScrollToTop = (): null => {
     const { pathname } = useLocation();
 
     useEffect(() => {
@@ -43,11 +43,14 @@ const App = () => (
                 <ScrollToTop />
                 <Routes>
                     <Route path="/" element={<Index />} />
-                    <Route path="/docs" element={<Docs />} />
-                    <Route path="/faq" element={<Faq />} />
+                    <Route
+                        path="/docs/:section?/:subSection?"
+                        element={<Docs />}
+                    />
+                    <Route path="/faq/:openID?" element={<Faq />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/about" element={<AboutUs />} />
-                    <Route path="/legal" element={<Legal />} />
+                    <Route path="/legal/:section?" element={<Legal />} />
                     <Route path="/redirect" element={<Redirect />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

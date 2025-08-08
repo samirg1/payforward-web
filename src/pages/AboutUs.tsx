@@ -7,7 +7,7 @@ import aboutUs from "@/data/aboutUs";
 
 const AboutUs = () => {
     return (
-        <Page>
+        <Page navLinkFrom="About">
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                     <FadeIn duration={100} className="mb-10">

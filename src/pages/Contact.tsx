@@ -3,36 +3,20 @@ import { Mail, Phone } from "lucide-react";
 import Page from "@/pages/Page";
 
 import FadeIn from "@/components/FadeIn";
-import Facebook from "@/components/socialIcons/Facebook";
-import Instagram from "@/components/socialIcons/Instagram";
-import Linkedin from "@/components/socialIcons/LinkedIn";
-import X from "@/components/socialIcons/X";
-import YouTube from "@/components/socialIcons/YouTube";
 
 import {
     FEEDBACK_EMAIL,
     INFO_EMAIL,
-    SOCIAL_LINKS,
+    SOCIAL_LINKS_MAPPINGS,
     SUPPORT_ADDRESS,
     SUPPORT_EMAIL,
     SUPPORT_HOURS,
     SUPPORT_PHONE,
 } from "@/data/constants";
 
-const SOCIAL_LINKS_MAPPINGS: Record<
-    keyof typeof SOCIAL_LINKS,
-    React.ComponentType<{ className?: string }>
-> = {
-    instagram: Instagram,
-    x: X,
-    facebook: Facebook,
-    linkedin: Linkedin,
-    youtube: YouTube,
-};
-
 const Contact = () => {
     return (
-        <Page>
+        <Page navLinkFrom="Contact">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto">
                     <FadeIn duration={100} className="text-center mb-12">
@@ -86,12 +70,8 @@ const Contact = () => {
                                 </div>
                             </div>
 
-                            {Object.entries(SOCIAL_LINKS).map(([key, url]) => {
+                            {Object.entries(SOCIAL_LINKS_MAPPINGS).map(([key, { url, Icon }]) => {
                                 if (!url) return null;
-                                const Icon =
-                                    SOCIAL_LINKS_MAPPINGS[
-                                        key as keyof typeof SOCIAL_LINKS
-                                    ];
                                 return (
                                     <div
                                         key={key}

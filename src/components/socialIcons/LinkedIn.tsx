@@ -10,6 +10,7 @@ export default function Linkedin({ className }: { className?: string }) {
             viewBox="0 0 382 382"
             xmlSpace="preserve"
             fill="#27489d"
+            className={className}
         >
             <g id="SVGRepo_bgCarrier" stroke-width="0" />
             <g

@@ -28,7 +28,7 @@ const Verifications = () => (
             up in search results and be able to send quotes and receive
             payments. Learn more about onboarding{" "}
             {replacePlaceholdersWithLinks(
-                linkText("here.", "/docs#information-onboarding"),
+                linkText("here.", "/docs/information/onboarding"),
             )}
         </p>
         <br />

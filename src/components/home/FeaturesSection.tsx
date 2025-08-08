@@ -52,7 +52,7 @@ const FeaturesSection = () => {
                                         {features.map((feature, index) => (
                                             <FadeIn
                                                 key={index}
-                                                duration={index * 200 + 200}
+                                                duration={index * 50 + 200}
                                             >
                                                 <Card
                                                     key={index}

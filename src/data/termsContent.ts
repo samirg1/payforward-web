@@ -40,7 +40,7 @@ const terms: TermsContentPiece[] = [
     },
     {
         title: "Payment Fees",
-        description: `PayForward takes a small fee from each transaction a business receives made through the app. The business is not to charge the customer for these fees (i.e. the service should cost the same for the customer in cash as by paying through the app). If a business is found to be charging the customer for these fees, necessary action will be taken. See ${linkText("Pricing", "/docs#pricing")}.`,
+        description: `PayForward takes a small fee from each transaction a business receives made through the app. The business is not to charge the customer for these fees (i.e. the service should cost the same for the customer in cash as by paying through the app). If a business is found to be charging the customer for these fees, necessary action will be taken. See ${linkText("Pricing", "/docs/pricing")}.`,
     },
     {
         title: "User Accounts",

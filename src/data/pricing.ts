@@ -64,12 +64,19 @@ const pricing: PricingPiece[] = [
                 "Important Note",
                 `As outlined in our ${linkText(
                     "Terms of Service",
-                    "/legal#terms",
+                    "/legal/terms",
                 )}, businesses are prohibited from passing these fees onto customers. These fees support our infrastructure and ensure secure transactions.`,
             ],
             [
                 "Why 3.7%?",
                 "We pay 1.7% (+ 30¢) to our payment processor to ensure the highest level of security and reliability. The remaining 2% covers our operational costs, ensuring we can continue to provide a high-quality service.",
+            ],
+            [
+                "More Information",
+                `For more details on how payments work, please refer to our ${linkText(
+                    "payments documentation",
+                    "/docs/information/payments",
+                )}.`,
             ],
         ],
         listType: "unordered",

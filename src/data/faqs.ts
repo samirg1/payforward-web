@@ -17,7 +17,7 @@ const faqs: FAQ[] = [
     {
         id: "what-is-the-pricing-structure",
         question: "What is the pricing structure for using PayForward?",
-        answer: `PayForward is free to download and use. We charge businesses a small transaction fee of 3.7% + 30¢ for each payment processed through the app. Customers pay no fees when booking services. For more details, check out our ${linkText("Pricing", "/docs#pricing")}.`,
+        answer: `PayForward is free to download and use. We charge businesses a small transaction fee of 3.7% + 30¢ for each payment processed through the app. Customers pay no fees when booking services. For more details, check out our ${linkText("Pricing", "/docs/pricing")}.`,
     },
     {
         id: "how-does-payforward-enforce-real-reviews",
@@ -37,7 +37,7 @@ const faqs: FAQ[] = [
     {
         id: "how-does-payforward-maintain-security",
         question: "How does PayForward maintain security?",
-        answer: `We use secure payment gateways and verify all businesses before they are able to send a quote. Learn more about ${linkText("how we keep your data safe.", "/docs#information-security")}.`,
+        answer: `We use secure payment gateways and verify all businesses before they are able to send a quote. Learn more about ${linkText("how we keep your data safe.", "/docs/information/security")}.`,
     },
     {
         id: "is-it-free-as-a-customer",
@@ -47,7 +47,7 @@ const faqs: FAQ[] = [
     {
         id: "what-kinds-of-services",
         question: "What kinds of services can I find on PayForward?",
-        answer: `We aim to be as flexible as possible as a platform, allowing almost any local service to be listed. The only boundaries are that the service must be legal and not violate our ${linkText("Terms of Service", "/legal#terms")}.`,
+        answer: `We aim to be as flexible as possible as a platform, allowing almost any local service to be listed. The only boundaries are that the service must be legal and not violate our ${linkText("Terms of Service", "/legal/terms")}.`,
     },
     {
         id: "are-businesses-charged",
