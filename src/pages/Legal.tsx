@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Page from "@/pages/Page";
 
@@ -9,9 +9,11 @@ import PrivacyContent from "@/components/legal/PrivacyContent";
 import TermsContent from "@/components/legal/TermsContent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+import useNavigate from "@/hooks/useNavigate";
+
 const Legal = () => {
     const navigate = useNavigate();
-    const { section } = useParams<{ section?: string }>();
+    const { section } = useParams<LEGAL_ROUTE_PARAMS>();
     const activeTab = useMemo(() => {
         if (!section || !["terms", "privacy", "cookies"].includes(section))
             return "terms";
@@ -34,7 +36,9 @@ const Legal = () => {
 
                     <Tabs
                         value={activeTab}
-                        onValueChange={(value) => navigate(`/legal/${value}`)}
+                        onValueChange={(value: keyof ROUTES["/legal"]) =>
+                            navigate(`/legal/${value}`)
+                        }
                         className="mb-12"
                     >
                         <FadeIn duration={120}>

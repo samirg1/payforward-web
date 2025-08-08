@@ -2,13 +2,15 @@ import FadeIn from "../FadeIn";
 import { Separator } from "../ui/separator";
 import { Menu, X } from "lucide-react";
 import { useMemo, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
+import useNavigate from "@/hooks/useNavigate";
 
 import information from "@/data/information";
 
 const InformationContent = () => {
     const navigate = useNavigate();
-    const { subSection } = useParams<{ subSection?: string }>();
+    const { subSection } = useParams<DOC_ROUTE_PARAMS<"information">>();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const activeSection = useMemo(() => {
         if (!subSection) return information[0];

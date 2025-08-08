@@ -33,6 +33,18 @@ const ScrollToTop = (): null => {
 
 const queryClient = new QueryClient();
 
+const ROUTES_TO_PAGES: Record<ALL_PATHS[keyof ALL_PATHS], React.ComponentType> =
+    {
+        "/": Index,
+        "/docs/:section?/:subSection?": Docs,
+        "/faq": Faq,
+        "/contact": Contact,
+        "/about": AboutUs,
+        "/legal/:section?": Legal,
+        "/redirect": Redirect,
+        "*": NotFound,
+    };
+
 const App = () => (
     <QueryClientProvider client={queryClient}>
         <TooltipProvider>
@@ -42,17 +54,15 @@ const App = () => (
             <BrowserRouter>
                 <ScrollToTop />
                 <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route
-                        path="/docs/:section?/:subSection?"
-                        element={<Docs />}
-                    />
-                    <Route path="/faq/:openID?" element={<Faq />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/about" element={<AboutUs />} />
-                    <Route path="/legal/:section?" element={<Legal />} />
-                    <Route path="/redirect" element={<Redirect />} />
-                    <Route path="*" element={<NotFound />} />
+                    {Object.entries(ROUTES_TO_PAGES).map(
+                        ([path, Component]) => (
+                            <Route
+                                key={path}
+                                path={path}
+                                element={<Component />}
+                            />
+                        ),
+                    )}
                 </Routes>
             </BrowserRouter>
         </TooltipProvider>

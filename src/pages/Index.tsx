@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import Page from "@/pages/Page";
 
@@ -7,6 +7,8 @@ import CallToAction from "@/components/home/CallToAction";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import HeroSection from "@/components/home/HeroSection";
 import HowItWorks from "@/components/home/HowItWorks";
+
+import useNavigate from "@/hooks/useNavigate";
 
 import useShowDownloadStore from "@/state/useShowDownloadStore";
 

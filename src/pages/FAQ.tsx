@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import Page from "@/pages/Page";
 
@@ -11,6 +11,8 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+
+import useNavigate from "@/hooks/useNavigate";
 
 import faqs from "@/data/faqs";
 

@@ -7,7 +7,7 @@ import Security from "@/data/information/Security";
 import Verifications from "@/data/information/Verifications";
 
 interface InformationSection {
-    id: string;
+    id: keyof ROUTES["/docs"]["information"];
     title: string;
     content: () => React.ReactNode;
 }

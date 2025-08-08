@@ -1,4 +1,5 @@
 import FadeIn from "../FadeIn";
+import HowItWorks from "../home/HowItWorks";
 
 import ConditionalWrapper from "@/components/ConditionalWrapper";
 import {
@@ -10,7 +11,6 @@ import {
 } from "@/components/ui/card";
 
 import quickStart from "@/data/quickStart";
-import HowItWorks from "../home/HowItWorks";
 
 const QuickStartContent = () => {
     return (

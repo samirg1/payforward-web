@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import TutorialItem from "@/components/docs/TutorialItem";
+
+import useNavigate from "@/hooks/useNavigate";
 
 import tutorials from "@/data/tutorials";
 

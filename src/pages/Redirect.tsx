@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+import useNavigate from "@/hooks/useNavigate";
 
 const Redirect = () => {
     const location = useLocation();

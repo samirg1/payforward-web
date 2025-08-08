@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Page from "@/pages/Page";
 
@@ -10,9 +10,11 @@ import QuickStartContent from "@/components/docs/QuickStartContent";
 import TutorialsContent from "@/components/docs/TutorialsContent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-type DocTabs = "information" | "tutorials" | "pricing" | "quick-start";
+import useNavigate from "@/hooks/useNavigate";
 
-const tabs: { [key in DocTabs]: { title: string; Component: React.FC } } = {
+const tabs: {
+    [key in keyof ROUTES["/docs"]]: { title: string; Component: React.FC };
+} = {
     "quick-start": {
         title: "Quick Start",
         Component: QuickStartContent,
@@ -32,12 +34,12 @@ const tabs: { [key in DocTabs]: { title: string; Component: React.FC } } = {
 };
 
 const Docs = () => {
-    const { section } = useParams<{ section?: DocTabs }>();
+    const { section } = useParams<DOC_ROUTE_PARAMS>();
     const navigate = useNavigate();
 
     const activeTab = useMemo(() => {
         if (!section) return "quick-start";
-        return section as DocTabs;
+        return section;
     }, [section]);
 
     return (
@@ -55,7 +57,7 @@ const Docs = () => {
 
                     <Tabs
                         value={activeTab}
-                        onValueChange={(value) =>
+                        onValueChange={(value: keyof ROUTES["/docs"]) =>
                             navigate(
                                 value in tabs
                                     ? `/docs/${value}`

@@ -1,9 +1,10 @@
 import { ChevronsDown } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import FadeIn from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
+
+import useNavigate from "@/hooks/useNavigate";
 
 import { heroSlideshowImages } from "@/data/images";
 

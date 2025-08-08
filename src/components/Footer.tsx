@@ -2,14 +2,18 @@ import { Link } from "react-router-dom";
 
 import Logo from "@/components/Logo";
 
-import useShowDownloadStore from "@/state/useShowDownloadStore";
 import { SOCIAL_LINKS_MAPPINGS } from "@/data/constants";
+
+import useShowDownloadStore from "@/state/useShowDownloadStore";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     const showDownload = useShowDownloadStore((state) => state.show);
 
-    const sections = [
+    const sections: {
+        title: string;
+        links: { label: string; href: ALL_ROUTES; onClick?: () => void }[];
+    }[] = [
         {
             title: "Product",
             links: [
@@ -55,19 +59,21 @@ const Footer = () => {
                             Empowering businesses. Connecting communities.
                         </p>
                         <div className="flex space-x-4">
-                            {Object.entries(SOCIAL_LINKS_MAPPINGS).map(([key, { url, Icon }]) => {
-                                if (!url) return null;
-                                return (
-                                    <a
-                                        key={key}
-                                        href={url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <Icon className="w-[24px] h-[24px]" />
-                                    </a>
-                                );
-                            })}
+                            {Object.entries(SOCIAL_LINKS_MAPPINGS).map(
+                                ([key, { url, Icon }]) => {
+                                    if (!url) return null;
+                                    return (
+                                        <a
+                                            key={key}
+                                            href={url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <Icon className="w-[24px] h-[24px]" />
+                                        </a>
+                                    );
+                                },
+                            )}
                         </div>
                     </div>
 
