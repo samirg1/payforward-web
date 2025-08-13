@@ -4,6 +4,10 @@ import Linkedin from "@/components/socialIcons/LinkedIn";
 import X from "@/components/socialIcons/X";
 import YouTube from "@/components/socialIcons/YouTube";
 
+
+
+
+
 export const DOMAIN_NAME = "payforward.com.au";
 
 export const SUPPORT_EMAIL = `support@${DOMAIN_NAME}`;
@@ -16,7 +20,7 @@ export const SUPPORT_ADDRESS: string | undefined = undefined;
 
 export const SOCIAL_LINKS = {
     instagram: "https://www.instagram.com/payforward_au/",
-    x: null as string | null,
+    x: "https://x.com/payforward_au",
     facebook: null as string | null,
     linkedin: "https://www.linkedin.com/company/payforward-au/",
     youtube: null as string | null,

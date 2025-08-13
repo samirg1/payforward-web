@@ -39,7 +39,7 @@ const Onboarding = () => (
             To complete the onboarding process, head to{" "}
             {replacePlaceholdersWithLinks(
                 deepLinkText(
-                    "Your Account Tab > Menu (☰) > Settings > Business.",
+                    "Your Account Tab > Settings > Business.",
                     "account/settings/business",
                 ),
             )}

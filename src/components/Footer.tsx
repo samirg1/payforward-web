@@ -58,7 +58,7 @@ const Footer = () => {
                         <p className="text-muted-foreground mb-4 max-w-xs">
                             Empowering businesses. Connecting communities.
                         </p>
-                        <div className="flex space-x-4">
+                        <div className="flex space-x-6">
                             {Object.entries(SOCIAL_LINKS_MAPPINGS).map(
                                 ([key, { url, Icon }]) => {
                                     if (!url) return null;

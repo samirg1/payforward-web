@@ -70,34 +70,23 @@ const Contact = () => {
                                 </div>
                             </div>
 
+                            <div className="flex space-x-6">
                             {Object.entries(SOCIAL_LINKS_MAPPINGS).map(
                                 ([key, { url, Icon }]) => {
                                     if (!url) return null;
                                     return (
-                                        <div
+                                        <a
                                             key={key}
-                                            className="flex items-start gap-4"
+                                            href={url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                         >
-                                            <Icon className="text-primary h-6 w-6 mt-1" />
-                                            <div>
-                                                <h3 className="font-medium mb-1 capitalize">
-                                                    {key}
-                                                </h3>
-                                                <p>
-                                                    <a
-                                                        href={url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="text-primary hover:underline"
-                                                    >
-                                                        {url}
-                                                    </a>
-                                                </p>
-                                            </div>
-                                        </div>
+                                            <Icon className="w-[24px] h-[24px]" />
+                                        </a>
                                     );
                                 },
                             )}
+                        </div>
 
                             {SUPPORT_PHONE && (
                                 <div className="flex items-start gap-4">

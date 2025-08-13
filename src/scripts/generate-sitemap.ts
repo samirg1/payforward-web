@@ -41,4 +41,4 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>`;
 
 fs.writeFileSync(path.join("public", "sitemap.xml"), sitemap);
-console.log("✅ Sitemap generated.");
+console.log(`✅ Sitemap with ${Object.keys(staticPages).length} URLs generated.`);
