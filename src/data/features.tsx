@@ -5,6 +5,7 @@ import {
     Link,
     MapPinCheckInside,
     MessagesSquare,
+    ReceiptText,
     Search,
     Smartphone,
     TrendingUp,
@@ -26,6 +27,11 @@ export const customerFeatures: Feature[] = [
         icon: <MapPinCheckInside className="h-6 w-6" />,
         title: "Find Local Businesses",
         description: `Search by profession, location, rating. From handymen to hairdressers to bakers — we’ve got them all.`,
+    },
+    {
+        icon: <ReceiptText className="h-6 w-6" />,
+        title: "Request a Service",
+        description: `Need something done? Post a listing and let local businesses find you. It’s free, easy, and fast. See ${linkText("listings", "/docs/information/listings")}.`,
     },
     {
         icon: <CreditCard className="h-6 w-6" />,

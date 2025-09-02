@@ -4,10 +4,6 @@ import Linkedin from "@/components/socialIcons/LinkedIn";
 import X from "@/components/socialIcons/X";
 import YouTube from "@/components/socialIcons/YouTube";
 
-
-
-
-
 export const DOMAIN_NAME = "payforward.com.au";
 
 export const SUPPORT_EMAIL = `support@${DOMAIN_NAME}`;

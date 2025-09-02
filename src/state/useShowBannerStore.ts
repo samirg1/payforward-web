@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
 import { APP_IS_AVAILABLE } from "@/data/constants";
 
@@ -8,16 +7,9 @@ interface ShowBannerStore {
     setShowBanner: (showBanner: boolean) => void;
 }
 
-const useShowBannerStore = create<ShowBannerStore>()(
-    persist(
-        (set) => ({
-            showBanner: !APP_IS_AVAILABLE,
-            setShowBanner: (showBanner: boolean) => set({ showBanner }),
-        }),
-        {
-            name: "show-banner-storage",
-        },
-    ),
-);
+const useShowBannerStore = create<ShowBannerStore>()((set) => ({
+    showBanner: !APP_IS_AVAILABLE,
+    setShowBanner: (showBanner: boolean) => set({ showBanner }),
+}));
 
 export default useShowBannerStore;

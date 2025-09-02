@@ -17,10 +17,11 @@ const Page = ({
     mainClassName?: string;
 }) => {
     useSetCurrentPage(navLinkFrom);
+
     return (
         <div className="min-h-screen flex flex-col">
             <MainNav />
-            <main className={mainClassName ?? "flex-1 pt-24 pb-16 mt-6"}>
+            <main className={mainClassName ?? "flex-1 pt-24 pb-16 mt-12"}>
                 {children}
             </main>
             <Footer />

@@ -13,6 +13,12 @@ type ROUTES = {
         pricing: undefined;
         "quick-start": undefined;
     };
+    "/blog": {
+        all: undefined;
+        engineering: undefined;
+        product: undefined;
+        company: undefined;
+    };
     "/legal": {
         terms: undefined;
         privacy: undefined;
@@ -21,6 +27,7 @@ type ROUTES = {
     "/faq": undefined;
     "/contact": undefined;
     "/about": undefined;
+    "/join-waitlist": undefined;
     "/": undefined;
 };
 
@@ -32,6 +39,12 @@ type DOC_ROUTE_PARAMS<T extends keyof ROUTES["/docs"] = keyof ROUTES["/docs"]> =
 
 type LEGAL_ROUTE_PARAMS<
     T extends keyof ROUTES["/legal"] = keyof ROUTES["/legal"],
+> = {
+    section: T;
+};
+
+type BLOG_ROUTE_PARAMS<
+    T extends keyof ROUTES["/blog"] = keyof ROUTES["/blog"],
 > = {
     section: T;
 };

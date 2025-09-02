@@ -14,11 +14,11 @@ const useCurrentPageStore = create<CurrentPageStore>()((set) => ({
 }));
 
 export const useSetCurrentPage = (
-    page: (typeof NAV_ITEMS)[number]["label"],
+    page?: (typeof NAV_ITEMS)[number]["label"],
 ) => {
     const { setCurrentPage } = useCurrentPageStore();
     useEffect(() => {
-        setCurrentPage(page);
+        if (page) setCurrentPage(page);
     }, [page, setCurrentPage]);
 };
 

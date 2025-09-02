@@ -24,6 +24,12 @@ const staticPages: Record<ALL_ROUTES, null> = {
     "/legal/privacy": null,
     "/legal/terms": null,
     "/legal/cookies": null,
+    "/join-waitlist": null,
+    "/blog": null,
+    "/blog/all": null,
+    "/blog/engineering": null,
+    "/blog/product": null,
+    "/blog/company": null,
 };
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -41,4 +47,6 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>`;
 
 fs.writeFileSync(path.join("public", "sitemap.xml"), sitemap);
-console.log(`✅ Sitemap with ${Object.keys(staticPages).length} URLs generated.`);
+console.log(
+    `✅ Sitemap with ${Object.keys(staticPages).length} URLs generated.`,
+);

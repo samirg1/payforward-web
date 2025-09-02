@@ -1,4 +1,3 @@
-import { AlertCircle } from "lucide-react";
 import React, { useCallback } from "react";
 
 import AppleLogo from "@/components/DownloadDialog/AppleLogo";
@@ -13,6 +12,7 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 
+import { ReleaseText } from "@/data/ReleaseDate";
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/data/constants";
 
 import useShowDownloadStore from "@/state/useShowDownloadStore";
@@ -37,11 +37,9 @@ const DownloadDialog: React.FC = () => {
                 </DialogHeader>
                 <div className="p-4 pt-0">
                     <FadeIn duration={100}>
-                        <Alert className="bg-amber-50 border-amber-200">
-                            <AlertCircle className="h-4 w-4 text-amber-500" />
-                            <AlertDescription className="text-amber-800">
-                                Our app is in the final development phases and
-                                is set for release in early September.
+                        <Alert className="bg-green-50 border-green-200">
+                            <AlertDescription className="text-green-800">
+                                <ReleaseText />
                             </AlertDescription>
                         </Alert>
                     </FadeIn>

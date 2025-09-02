@@ -71,22 +71,22 @@ const Contact = () => {
                             </div>
 
                             <div className="flex space-x-6">
-                            {Object.entries(SOCIAL_LINKS_MAPPINGS).map(
-                                ([key, { url, Icon }]) => {
-                                    if (!url) return null;
-                                    return (
-                                        <a
-                                            key={key}
-                                            href={url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <Icon className="w-[24px] h-[24px]" />
-                                        </a>
-                                    );
-                                },
-                            )}
-                        </div>
+                                {Object.entries(SOCIAL_LINKS_MAPPINGS).map(
+                                    ([key, { url, Icon }]) => {
+                                        if (!url) return null;
+                                        return (
+                                            <a
+                                                key={key}
+                                                href={url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <Icon className="w-[24px] h-[24px]" />
+                                            </a>
+                                        );
+                                    },
+                                )}
+                            </div>
 
                             {SUPPORT_PHONE && (
                                 <div className="flex items-start gap-4">

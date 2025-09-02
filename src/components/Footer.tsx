@@ -19,6 +19,7 @@ const Footer = () => {
             links: [
                 { label: "Download", href: "/", onClick: showDownload },
                 { label: "Pricing", href: "/docs/pricing" },
+                { label: "Join Waitlist", href: "/join-waitlist" },
             ],
         },
         {
@@ -41,6 +42,7 @@ const Footer = () => {
             title: "Company",
             links: [
                 { label: "About Us", href: "/about" },
+                { label: "Blog", href: "/blog" },
                 { label: "Contact", href: "/contact" },
                 { label: "Legal", href: "/legal" },
             ],
@@ -87,7 +89,6 @@ const Footer = () => {
                                     <li key={link.label}>
                                         {link.onClick ? (
                                             <a
-                                                href={link.href}
                                                 onClick={link.onClick}
                                                 className="text-muted-foreground hover:text-primary text-sm cursor-pointer"
                                             >
