@@ -2,6 +2,10 @@ import deepLinkText from "@/lib/links/deepLinkText";
 import linkText from "@/lib/links/linkText";
 import replacePlaceholdersWithLinks from "@/lib/links/replacePlaceholderWithLinks";
 
+
+
+
+
 const Onboarding = () => (
     <div>
         <h3 className="mb-4 text-center underline">Overview</h3>
@@ -20,10 +24,14 @@ const Onboarding = () => (
             {replacePlaceholdersWithLinks(
                 linkText("Stripe", "https://stripe.com"),
             )}{" "}
-            to verify the legitimacy of businesses on our platform. This service
-            helps us ensure that all businesses are properly registered and
-            compliant with changing local laws and regulations. Doing it this
-            way also allows for greater security for transactions.
+            to verify the legitimacy of businesses on our platform using their verification process. This service ensures that all businesses that are receiving payments meet the Stripe KYC ("Know Your
+            Customer") requirements in order to prevent abuse of the financial system. Read more{" "}
+            {replacePlaceholdersWithLinks(
+                linkText(
+                    "here.",
+                    "https://support.stripe.com/questions/know-your-customer-obligations",
+                ),
+            )}{" "}
         </p>
         <p>
             The onboarding process is initiated when a business creates an

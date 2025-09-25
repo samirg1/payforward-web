@@ -11,6 +11,7 @@ const privacyContent: PrivacyContentPiece[] = [
             "We collect several types of information from and about users of our services, including:",
         listContent: [
             "Personal information such as name and email address.",
+            "Basic information you provide about your business (name, industry type etc.).",
             "Usage data about how you interact with our services.",
             "Device information including IP address, browser type, and operating system.",
         ],
@@ -27,7 +28,7 @@ const privacyContent: PrivacyContentPiece[] = [
     },
     {
         title: "Sharing Your Information",
-        subtitle: " We may share your personal information with:",
+        subtitle: "We may share your personal information with:",
         listContent: [
             "Service providers who perform services on our behalf.",
             "Law enforcement agencies when required by law.",

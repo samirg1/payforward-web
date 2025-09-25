@@ -6,11 +6,11 @@ const CookiesContent = () => {
             <div>
                 <h2 className="text-2xl font-bold mb-4">Cookie Policy</h2>
                 <p className="text-muted-foreground mb-4">
-                    Last updated: April 11, 2025
+                    Last updated: September 25, 2025
                 </p>
                 <p className="text-muted-foreground mb-4">
                     This Cookie Policy explains how PayForward uses cookies and
-                    similar technologies to recognize you when you visit our
+                    similar technologies to recognise you when you visit our
                     website and mobile application.
                 </p>
             </div>

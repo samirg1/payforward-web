@@ -21,7 +21,7 @@ const terms: TermsContentPiece[] = [
     {
         title: "Use of Service",
         description:
-            "You agree to use our services only for lawful purposes and in accordance with these Terms. You agree not to use our services:",
+            "You agree to use our services only for lawful purposes and in accordance with these Terms. You agree to not use our services:",
         listContent: [
             "In any way that violates any applicable laws or regulations.",
             "To engage in any activity that interferes with or disrupts our services.",
@@ -31,6 +31,7 @@ const terms: TermsContentPiece[] = [
             "To engage in explicit or implicit threats of violence or harassment.",
             "For the purposes of spam, phishing, or other deceptive practices.",
             "To sell or purchase services that we deem unethical, inappropriate or discriminatory.",
+            "To create fake or misleading transactions, or ratings (including making payments to yourself, directly or indirectly) in order to manipulate activity, reputation, and/or performance metrics on the platform.",
         ],
     },
     {
