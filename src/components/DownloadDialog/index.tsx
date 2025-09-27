@@ -11,9 +11,11 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 
-import { APP_STORE_URL, PLAY_STORE_URL } from "@/data/constants";
+import { APP_IS_AVAILABLE, APP_STORE_URL, PLAY_STORE_URL } from "@/data/constants";
 
 import useShowDownloadStore from "@/state/useShowDownloadStore";
+import { ReleaseText } from "@/data/ReleaseDate";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const DownloadDialog: React.FC = () => {
     const showDownload = useShowDownloadStore((state) => state.showDownload);
@@ -34,6 +36,15 @@ const DownloadDialog: React.FC = () => {
                     <DialogTitle>App Download</DialogTitle>
                 </DialogHeader>
                 <div className="p-4 pt-0">
+                    {!APP_IS_AVAILABLE && (
+                        <FadeIn duration={100}>
+                        <Alert className="bg-green-50 border-green-200">
+                            <AlertDescription className="text-green-800">
+                                <ReleaseText />
+                            </AlertDescription>
+                        </Alert>
+                    </FadeIn>
+                    )}
                     <FadeIn
                         duration={150}
                         className="mt-6 flex flex-col space-y-3"

@@ -8,9 +8,6 @@ export const ReleaseText = () => {
             <span className="font-medium">
                 We are set to release on <ReleaseDate />!
             </span>
-            <a className="ml-1 opacity-80 underline" href="/join-waitlist">
-                Join our waitlist to be notified when we launch.
-            </a>
         </p>
     );
 };
