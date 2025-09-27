@@ -27,7 +27,6 @@ type ROUTES = {
     "/faq": undefined;
     "/contact": undefined;
     "/about": undefined;
-    "/join-waitlist": undefined;
     "/": undefined;
 };
 

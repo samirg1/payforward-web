@@ -9,7 +9,6 @@ import Contact from "@/pages/Contact";
 import Docs from "@/pages/Docs";
 import Faq from "@/pages/FAQ";
 import Index from "@/pages/Index";
-import JoinWaitlist from "@/pages/JoinWaitlist";
 import Legal from "@/pages/Legal";
 import NotFound from "@/pages/NotFound";
 import Redirect from "@/pages/Redirect";
@@ -44,7 +43,6 @@ const ROUTES_TO_PAGES: Record<ALL_PATHS[keyof ALL_PATHS], React.ComponentType> =
         "/about": AboutUs,
         "/legal/:section?": Legal,
         "/redirect": Redirect,
-        "/join-waitlist": JoinWaitlist,
         "/blog/:section?": Blog,
         "*": NotFound,
     };

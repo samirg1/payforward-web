@@ -24,7 +24,6 @@ const staticPages: Record<ALL_ROUTES, null> = {
     "/legal/privacy": null,
     "/legal/terms": null,
     "/legal/cookies": null,
-    "/join-waitlist": null,
     "/blog": null,
     "/blog/all": null,
     "/blog/engineering": null,

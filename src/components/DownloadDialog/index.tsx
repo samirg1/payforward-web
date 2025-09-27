@@ -3,7 +3,6 @@ import React, { useCallback } from "react";
 import AppleLogo from "@/components/DownloadDialog/AppleLogo";
 import GoogleLogo from "@/components/DownloadDialog/GoogleLogo";
 import FadeIn from "@/components/FadeIn";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
     Dialog,
@@ -12,7 +11,6 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 
-import { ReleaseText } from "@/data/ReleaseDate";
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/data/constants";
 
 import useShowDownloadStore from "@/state/useShowDownloadStore";
@@ -36,13 +34,6 @@ const DownloadDialog: React.FC = () => {
                     <DialogTitle>App Download</DialogTitle>
                 </DialogHeader>
                 <div className="p-4 pt-0">
-                    <FadeIn duration={100}>
-                        <Alert className="bg-green-50 border-green-200">
-                            <AlertDescription className="text-green-800">
-                                <ReleaseText />
-                            </AlertDescription>
-                        </Alert>
-                    </FadeIn>
                     <FadeIn
                         duration={150}
                         className="mt-6 flex flex-col space-y-3"

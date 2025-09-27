@@ -19,7 +19,6 @@ const Footer = () => {
             links: [
                 { label: "Download", href: "/", onClick: showDownload },
                 { label: "Pricing", href: "/docs/pricing" },
-                { label: "Join Waitlist", href: "/join-waitlist" },
             ],
         },
         {
