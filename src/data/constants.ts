@@ -4,6 +4,10 @@ import Linkedin from "@/components/socialIcons/LinkedIn";
 import X from "@/components/socialIcons/X";
 import YouTube from "@/components/socialIcons/YouTube";
 
+
+
+
+
 export const DOMAIN_NAME = "payforward.com.au";
 
 export const SUPPORT_EMAIL = `support@${DOMAIN_NAME}`;
@@ -52,9 +56,9 @@ export const SOCIAL_LINKS_MAPPINGS: Record<
 };
 
 export const APP_STORE_URL: string | undefined =
-    undefined;
+    "https://apps.apple.com/au/app/payforward/id6529523837";
 export const PLAY_STORE_URL: string | undefined =
-    undefined;
+    "https://play.google.com/store/apps/details?id=com.payforward";
 export const APP_IS_AVAILABLE = !!(APP_STORE_URL || PLAY_STORE_URL);
 
 export const NAV_ITEMS = [
