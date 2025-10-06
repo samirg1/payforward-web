@@ -8,7 +8,7 @@ const PrivacyContent = () => {
             <div>
                 <h2 className="text-2xl font-bold mb-4">Privacy Policy</h2>
                 <p className="text-muted-foreground mb-4">
-                    Last updated: September 25, 2025
+                    Last updated: October 6, 2025
                 </p>
                 <p className="text-muted-foreground mb-4">
                     This Privacy Policy describes how PayForward collects, uses,

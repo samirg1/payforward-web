@@ -44,6 +44,26 @@ const privacyContent: PrivacyContentPiece[] = [
             "Adjusting your notification settings.",
         ],
     },
+    {
+        title: "Signing Up through Instagram",
+        subtitle:
+            "We offer the option to sign up with Instagram to make onboarding faster for businesses that already have an Instagram presence.\
+            To use this option, your Instagram account must be a public Business or Creator account. We only access your Instagram data after you provide explicit consent.\
+        When you choose to connect your Instagram account:\
+            We temporarily retrieve certain public information from your profile to pre-fill your PayForward account.\
+            This information is not stored until you complete the signup process.\
+            We limit all requests in accordance with Instagram’s policies to prevent misuse and respect rate limits.\
+        By using this feature, you authorise PayForward to access and use this information solely for the purpose of creating your account.\
+            If you proceed with signup using your Instagram information, we may collect the following public details:",
+        listContent: [
+            "Username",
+            "Name",
+            "Profile picture URL (note: we do not store or host the actual image)",
+            "Bio",
+            "Email (if publicly listed)",
+            "Phone number (if publicly listed)",
+        ],
+    },
 ];
 
 export default privacyContent;
